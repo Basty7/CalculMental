@@ -1,0 +1,23 @@
+/* Feuille de style pour toutes les pages */
+
+html, body {
+	width: 100vw;
+	background-color: lightblue;
+}
+
+h1 {
+	text-align: center;
+	font-size: 2.5em;
+
+}
+
+#inserting {
+	width: max-content;
+}
+
+#inserting > div {
+	width: 100%;
+	display: flex;
+	justify-content:space-between;
+	
+}

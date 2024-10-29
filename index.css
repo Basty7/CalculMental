@@ -1,0 +1,25 @@
+/* Feuille de style pour la page index.html */
+
+/* body {} */
+
+h1 {
+	text-decoration: solid underline lightcoral;
+	text-decoration-skip-ink: none;
+}
+
+.pages {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.pages>* {
+	padding: 1em;
+	background-color: lightcoral;
+	border-radius: 1em;
+}
+
+.pages :hover {
+	background-color: orange;
+
+}
