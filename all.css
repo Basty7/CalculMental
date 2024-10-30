@@ -13,6 +13,7 @@ h1 {
 
 #inserting {
 	width: max-content;
+	margin: 20px;
 }
 
 #inserting > div {
@@ -20,4 +21,25 @@ h1 {
 	display: flex;
 	justify-content:space-between;
 	
+}
+
+#score {
+    font-family : helvetica;
+    font-size : 50px;
+}
+
+#score.vbad {
+	color : red;
+}
+
+#score.bad{
+	color : darkgray;
+}
+
+#score.good{
+	color: #37692c;
+}
+
+#score.vgood{
+	color: #39f60f;
 }

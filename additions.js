@@ -48,7 +48,7 @@ function score() {
         scdiv.innerHTML += " Bravo!";
         scdiv.classList.add("vgood");
     }
-    else if (score == 0) {
+    else if (score <= 1) {
         scdiv.innerHTML += " Révisez!";
         scdiv.classList.add("vbad");
     }
