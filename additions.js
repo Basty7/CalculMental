@@ -32,6 +32,7 @@ function generer() {
 }
 
 function score() {
+
     let score = 0;
     for (let pas = 0; pas < 10; pas++) {
         // Récupérer l'élément avec pr id 'input0', 'input1'...
@@ -64,3 +65,12 @@ function score() {
     }
 
 }
+
+
+
+document.addEventListener('keydown', (event) => {
+    if (event.key == 'Enter') {
+        score();
+    }
+});
+
