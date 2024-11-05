@@ -5,6 +5,8 @@ let asw = [
 ];
 
 function generer() {
+    // Vider la div puits
+    puits.innerHTML = "";
     // Pour les valeurs de pas dans [0,10[ (10 valeurs)
     for (let pas = 0; pas < 10; pas++) {
         let x = rnd(100);
@@ -46,19 +48,19 @@ function score() {
     // En fonction du score obtenu, rajouter un petit mot et changer la classe de l'élément (pour styling plus tard)
     if (score == 10) {
         scdiv.innerHTML += " Bravo!";
-        scdiv.classList.add("vgood");
+        scdiv.class = "vgood"
     }
     else if (score <= 1) {
         scdiv.innerHTML += " Révisez!";
-        scdiv.classList.add("vbad");
+        scdiv.class = "vbad";
     }
     else if (score < 5) {
         scdiv.innerHTML += " Vous pouvez faire mieux!";
-        scdiv.classList.add("bad");
+        scdiv.class = "bad";
     }
     else {
         scdiv.innerHTML += " Pas mal!";
-        scdiv.classList.add("good");
+        scdiv.class = "good";
     }
 
 }
