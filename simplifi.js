@@ -9,9 +9,12 @@ function generer() {
     puits.innerHTML = "";
     // Pour les valeurs de pas dans [0,10[ (10 valeurs)
     for (let pas = 0; pas < 10; pas++) {
-        let x = rnd(100);
-        let y = rnd(2);
-        let z = rnd(10);
+        let fx = rnd(99);
+        let x=fx+1;
+        let fy = rnd(1);
+        let y=fy+1;
+        let fz = rnd(9);
+        let z=fz+1;
         let t= x*(z**(2*y));
         // Créer un div avec un katex et un input
         // document.createElement(tag) créé un nouvel élément de forme <tag></tag>
