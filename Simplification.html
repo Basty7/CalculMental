@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Entreinement aux additions</title>
-    <link rel="stylesheet" href="additions.css">
+    <title>0+0=latêteàtoto</title>
+    <!-- <link rel="stylesheet" href="simplifi.css"> -->
     <link rel="stylesheet" href="all.css">
     <!-- KaTeX -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
@@ -12,19 +12,20 @@
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
         integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.2.1/math.min.js" integrity="sha512-iz0PG1GzN2wn3am0/kPxUH64fB2WRTfqQP6Y1DKgqUSE0UmeUMvXsCtUr6PCvhtSnw71q6VCHYiiFL7P4xD2Aw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Other imports -->
     <script src="main.js"></script>
     <script src="autorender.js"></script>
-    <script src="additions.js" defer></script>
+    <script src="simplifi.js" defer></script>
 </head>
 
 <body>
     <nav class="navbar"></nav>
-    <h1>Les additions</h1>
+    <h1>Simplifications d'expressions</h1>
 
-    <button onclick="generer()" type="button"> Générer des additions aléatoires </button>
+    <button onclick="generer()" type="button"> Générer des expressions aléatoires </button>
     <div id="inserting">
-        <!-- ici viendront les additions -->
+        <!-- ici les calculs -->
     </div>
 
     <button class="bouton" type="button" onclick="score()"> Voir son score </button>
@@ -34,7 +35,7 @@
     <!-- box pour le score /10 -->
 
     <h2>Tips & Tricks</h2>
-    <p> Décomposer l'addition en de petites additions <br> Visualiser le calcul</p>
+    <p> Voir ce qui peut se simplifier <br> S'accrocher</p>
 </body>
 
 </html>

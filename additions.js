@@ -32,6 +32,7 @@ function generer() {
 }
 
 function score() {
+
     let score = 0;
     for (let pas = 0; pas < 10; pas++) {
         // Récupérer l'élément avec pr id 'input0', 'input1'...
@@ -48,19 +49,28 @@ function score() {
     // En fonction du score obtenu, rajouter un petit mot et changer la classe de l'élément (pour styling plus tard)
     if (score == 10) {
         scdiv.innerHTML += " Bravo!";
-        scdiv.class = "vgood"
+        scdiv.className = "vgood"
     }
     else if (score <= 1) {
         scdiv.innerHTML += " Révisez!";
-        scdiv.class = "vbad";
+        scdiv.className = "vbad";
     }
     else if (score < 5) {
         scdiv.innerHTML += " Vous pouvez faire mieux!";
-        scdiv.class = "bad";
+        scdiv.className = "bad";
     }
     else {
         scdiv.innerHTML += " Pas mal!";
-        scdiv.class = "good";
+        scdiv.className = "good";
     }
 
 }
+
+
+
+document.addEventListener('keydown', (event) => {
+    if (event.key == 'Enter') {
+        score();
+    }
+});
+
