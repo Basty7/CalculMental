@@ -51,7 +51,7 @@ function generer() {
         else {
             // générer les variables
             let x=rnd(99)+1;
-            let y1=rnd(99)+1; // y et z sont premiers entre eux
+            let y1=rnd(99)+1; // y1 et z1 sont premiers entre eux
             let z1=rnd(99)+1;
             let y = y1/math.gcd(y1,z1);
             let z = z1/math.gcd(y1,z1);
