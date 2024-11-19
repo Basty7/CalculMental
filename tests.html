@@ -2,35 +2,39 @@
 <html lang="en">
 
 <head>
-	<!-- <meta charset="UTF-8"> -->
-	<title>Multiplication</title>
-	<!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
-	<!-- KaTeX -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
-		integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
-
-	<!-- The loading of KaTeX is deferred to speed up page rendering -->
-	<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
-		integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg"
-		crossorigin="anonymous"></script>
-	<script defer src="autorender.js"></script>
-	<script defer src="main.js"></script>
+    <meta charset="UTF-8">
+    <title>0+0=latêteàtoto</title>
+    <link rel="stylesheet" href="tests.css">
+    <!-- <link rel="stylesheet" href="all.css"> -->
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+        integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+        integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg"
+        crossorigin="anonymous"></script>
+    <!-- Other imports -->
+    <script src="main.js"></script>
+    <script src="autorender.js"></script>
+    <script src="tests.js" defer></script>
 </head>
 
 <body>
-	<katex>
-		2 \times 3 = 6
-	</katex>
-	<br>
-	<p id="benge"></p>
-	<katex>
-		2 \times 3 = 6
-	</katex>
-	<br>
-	<katex>
-		\sum^{10}_{i=1} i^2 +3i
-	</katex>
+    <nav class="navbar"></nav>
+    <h1>Les additions</h1>
 
+    <button onclick="generer()" type="button"> Générer des additions aléatoires </button>
+    <div id="inserting">
+        <!-- ici viendront les additions -->
+    </div>
+
+    <button class="bouton" type="button" onclick="score()"> Voir son score </button>
+    <div id="score">
+        <!-- ici viendra le score -->
+    </div>
+    <!-- box pour le score /10 -->
+
+    <h2>Tips & Tricks</h2>
+    <p> Décomposer l'addition en de petites additions <br> Visualiser le calcul</p>
 </body>
 
 </html>
