@@ -1,5 +1,4 @@
 let puits = document.getElementById('inserting');
-
 let asw = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 ];
@@ -19,7 +18,7 @@ function generer() {
         let inpt = div.appendChild(document.createElement("input"));
         // puits.appendChild(document.createElement("br"));
         // Remplir le katex
-        kat.innerHTML = `${x} + ${y} `;
+        kat.innerHTML = `${x} + ${y} = `;
         // Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
         inpt.type = "text";
         inpt.id = `input${pas}`;
@@ -31,6 +30,16 @@ function generer() {
     }
     // Render les maths
     render_katex();
+}
+
+function right() {
+    puits.parentElement.scrollLeft += window.innerWidth;
+    // puits.scrollLeft += 100;
+}
+
+function left() {
+    puits.parentElement.scrollLeft -= window.innerWidth;
+    // puits.scrollLeft -= 100;
 }
 
 function score() {

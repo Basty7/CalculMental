@@ -19,32 +19,41 @@ h2 {
 	text-decoration: underline;
 }
 
-#inserting {
+.insParent {
 	width: 100vw;
-	margin: 20px;
-	display: flex;
-	justify-content: space-between;
 	overflow-x: scroll;
+	scroll-behavior: smooth;
+}
+
+#inserting {
+	width: 1000vw;
+	margin: 20px 0;
+	display: flex;
+	/* justify-content: space-around; */
+	overflow-x: scroll;
+	scroll-behavior: smooth;
 
 }
 
 /* Ceci permet de cacher la barre de défilement */
-#inserting {
+#inserting, .insParent {
 	-ms-overflow-style: none;
 	/* Internet Explorer 10+ */
 	scrollbar-width: none;
 	/* Firefox */
 }
 
-.container::-webkit-scrollbar {
+#inserting::-webkit-scrollbar, .insParent::-webkit-scrollbar {
 	display: none;
 	/* Safari and Chrome */
 }
 
 #inserting>div {
-	width: 100vw;
+	width: 90vw;
+	margin: 0 5vw;
 	display: flex;
-	justify-content: space-between;
+	/* justify-content: space-between; */
+	align-items: center;
 
 }
 
@@ -71,7 +80,7 @@ h2 {
 
 .katex-question {
 	font-size: 1em;
-	width: 4em;
+	width: 10em;
 }
 
 .answers {
