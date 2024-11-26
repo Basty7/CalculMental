@@ -8,7 +8,7 @@ function generer(){
     // On génère les valeurs
     const xValues = [];
     const yValues = [];
-    for (let x = 0; x <= 10; x += 0.1) {
+    for (let x = 0; x <= 5; x += 0.1) {
         yValues.push(eval(f));
         xValues.push(x);
     }
