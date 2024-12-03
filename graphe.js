@@ -1,7 +1,11 @@
 let puits = document.getElementById('inserting');
 
 let asw = [
-    0, 0, 0, 0, 0, 0
+    0, 0, 0
+];
+
+let ASW = [
+    0, 0, 0
 ];
 
 function generer() {
@@ -16,6 +20,7 @@ function generer() {
     // Remplir le katex
     kat.innerHTML = "Quelle est la fonction affichée ?";
 
+    // https://www.w3schools.com/ai/ai_plotly.asp le site sur lequel le code pour afficher des graphes a été trouvé
     //on génère le graphe
     let a1 = rnd(11)-5;
     let b1 = rnd(11)-5;
@@ -56,6 +61,8 @@ function generer() {
     ];
     let layout = {title: "y = ax+b" };
     Plotly.newPlot(div, data, layout);
+
+
 //trace 0
     let inpttext0=  puits.appendChild(document.createElement("katex"));
     let inpt0 = puits.appendChild(document.createElement("input"));
@@ -66,17 +73,18 @@ function generer() {
 
     // Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
     inpt0.type = "text";
-    inpt0.id = `input`;
+    inpt0.id = `input0`;
     inpt0.class = "answers";
     asw[0] = a1;
 
     inpt2text0.innerHTML = "x+";
 
     inpt20.type = "text";
-    inpt20.id = `input`;
+    inpt20.id = `inputy0`;
     inpt20.class = "answers";
     // Mettre la réponse dans la liste 
-    asw[1] = b1;
+    ASW[0] = b1;
+
 
 //trace 1
     let espace1 = puits.appendChild(document.createElement("br"));
@@ -89,40 +97,41 @@ function generer() {
 
     // Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
     inpt1.type = "text";
-    inpt1.id = `input`;
+    inpt1.id = `input1`;
     inpt1.class = "answers";
-    asw[2] = a2;
+    asw[1] = a2;
 
     inpt2text1.innerHTML = "x+";
 
     inpt21.type = "text";
-    inpt21.id = `input`;
+    inpt21.id = `inputy1`;
     inpt21.class = "answers";
     // Mettre la réponse dans la liste 
-    asw[3] = b2;
+    ASW[1] = b2;
+
 
 //trace 2
     let espace2 = puits.appendChild(document.createElement("br"));
-    let inpttext=  puits.appendChild(document.createElement("katex"));
-    let inpt = puits.appendChild(document.createElement("input"));
-    let inpt2text =  puits.appendChild(document.createElement("katex"));
+    let inpttext2=  puits.appendChild(document.createElement("katex"));
     let inpt2 = puits.appendChild(document.createElement("input"));
+    let inpt2text2 =  puits.appendChild(document.createElement("katex"));
+    let inpt22 = puits.appendChild(document.createElement("input"));
 
-    inpttext.innerHTML = "2. y= ";
+    inpttext2.innerHTML = "2. y= ";
 
     // Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
-    inpt.type = "text";
-    inpt.id = `input`;
-    inpt.class = "answers";
-    asw[4] = a3;
-
-    inpt2text.innerHTML = "x+";
-
     inpt2.type = "text";
-    inpt2.id = `input`;
+    inpt2.id = `input2`;
     inpt2.class = "answers";
+    asw[2] = a3;
+
+    inpt2text2.innerHTML = "x+";
+
+    inpt22.type = "text";
+    inpt22.id = `inputy2`;
+    inpt22.class = "answers";
     // Mettre la réponse dans la liste 
-    asw[5] = b3;
+    ASW[2] = b3;
     
     // Render les maths
     render_katex();
@@ -134,22 +143,22 @@ function score() {
     for (let pas = 0; pas < 3; pas++) {
         // Récupérer l'élément avec pr id 'input0', 'input1'...
         let inpt = document.getElementById(`input${pas}`);
-        let inpt2 = document.getElementById(`inputy${pas}`)
+        let inpt2 = document.getElementById(`inputy${pas}`);
         // Si la valeur entrée par l'utilisateur dans le input correspond à la réponse enregistrée dans asw, rajouter un point, sinon rien.
-        if (inpt.value == asw[2*pas+1] && inpt2.value == asw[2*pas+2]) {
+        if ( (inpt.value == asw[pas]) && (inpt2.value == ASW[pas]) ) {
             score++;
         }
     }
     // Récupère l'élément destiné à contenir l'affichage du score
     let scdiv = document.getElementById('score');
     // Changer son texte pour afficher le score obtenu
-    scdiv.innerHTML = `Votre score est de ${score}/10`;
+    scdiv.innerHTML = `Votre score est de ${score}/3`;
     // En fonction du score obtenu, rajouter un petit mot et changer la classe de l'élément (pour styling plus tard)
     if (score == 3) {
         scdiv.innerHTML += " Bravo!";
         scdiv.className = "vgood"
     }
-    else if (score == 2) {
+    else if (score == 0) {
         scdiv.innerHTML += " Révisez!";
         scdiv.className = "vbad";
     }
