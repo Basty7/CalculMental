@@ -18,7 +18,7 @@ function generer() {
     let kat = puits.appendChild(document.createElement("p"));
     // puits.appendChild(document.createElement("br"));
     // Remplir le katex
-    kat.innerHTML = "Quelle est la fonction affichée ?";
+    kat.innerHTML = "Quelles sont les fonctions affichées ?";
 
     // https://www.w3schools.com/ai/ai_plotly.asp le site sur lequel le code pour afficher des graphes a été trouvé
     //on génère le graphe
