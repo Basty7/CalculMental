@@ -26,6 +26,15 @@ function generer() {
         inpt.class = "answers";
         // Mettre la réponse dans la liste 
         asw[pas] = x + y;
+        if (pas != 9) {
+            inpt.addEventListener('keydown', (event) => {
+                if (event.key == 'Enter') {
+                    event.stopPropagation(); // Empêcher les actions d'autres EventListeners
+                    right(); // Déplacer le scroll vers la droite (fonction définie plus bas)
+                    document.getElementById(`input${pas + 1}`).select(); // Déplacer le curseur sur l'input suivant
+                }
+            })
+        }
     }
     // Render les maths
     render_katex();

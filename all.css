@@ -1,10 +1,10 @@
 /* Feuille de style pour toutes les pages */
 
-html, body {
+html,
+body {
 	width: 100vw;
 	background-color: lightblue;
-	scrollbar-width: 0;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 h1 {
@@ -15,39 +15,76 @@ h1 {
 
 h2 {
 	text-align: center;
-	font-size : 2em;
+	font-size: 2em;
 	text-decoration: underline;
 }
 
-#inserting {
-	max-width: 90vw;
-	margin: 20px;
+.insParent {
+	width: 100vw;
+	overflow-x: scroll;
+	scroll-behavior: smooth;
 }
 
-#inserting > div {
-	width: 100%;
+#inserting {
+	width: 1000vw;
+	margin: 20px 0;
 	display: flex;
-	justify-content:space-between;
-	
+	/* justify-content: space-around; */
+	overflow-x: scroll;
+	scroll-behavior: smooth;
+
+}
+
+/* Ceci permet de cacher la barre de défilement */
+#inserting,
+.insParent {
+	-ms-overflow-style: none;
+	/* Internet Explorer 10+ */
+	scrollbar-width: none;
+	/* Firefox */
+}
+
+#inserting::-webkit-scrollbar,
+.insParent::-webkit-scrollbar {
+	display: none;
+	/* Safari and Chrome */
+}
+
+#inserting>div {
+	width: 90vw;
+	margin: 0 5vw;
+	display: flex;
+	/* justify-content: space-between; */
+	align-items: center;
+	height: 2em;
 }
 
 #score {
-    font-family : helvetica;
-    font-size : 50px;
+	font-family: helvetica;
+	font-size: 50px;
 }
 
 #score.vbad {
-	color : red;
+	color: red;
 }
 
-#score.bad{
-	color : rgb(82, 76, 76);
+#score.bad {
+	color: rgb(82, 76, 76);
 }
 
-#score.good{
+#score.good {
 	color: #37692c;
 }
 
-#score.vgood{
+#score.vgood {
 	color: #39f60f;
+}
+
+.katex-question {
+	font-size: 1em;
+	width: 10em;
+}
+
+.answers {
+	width: 8em;
 }

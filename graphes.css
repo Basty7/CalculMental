@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+#inserting {
+	max-width: 90vw;
+	margin: 20px;
+}
+
+#inserting > div {
+	width: 100%;
+	display: flex;
+	justify-content:space-between;
+}
