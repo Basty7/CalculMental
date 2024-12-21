@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Entrainement aux additions</title>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" media="(prefers-color-scheme: light)">
+    <link rel="shortcut icon" href="assets/favicon-dark.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="additions.css">
     <link rel="stylesheet" href="all.css">
     <!-- KaTeX -->
@@ -22,12 +24,13 @@
     <nav class="navbar"></nav>
     <h1>Les additions</h1>
 
-    <div class="bts">
+    <button onclick="generer()" type="button"> Générer des additions aléatoires </button>
+
+    <div class="hide" id="bts">
         <button onclick="left()">Scroll left</button>
         <button onclick="right()">Scroll right</button>
     </div>
 
-    <button onclick="generer()" type="button"> Générer des additions aléatoires </button>
     <div id="inserting">
         <!-- ici viendront les additions -->
     </div>

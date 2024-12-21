@@ -17,9 +17,12 @@ h1 {
 	padding: 1em;
 	background-color: lightcoral;
 	border-radius: 1em;
+	transition: transform .2s;
+	text-decoration: none;
+	color: black;
 }
 
 .pages :hover {
 	background-color: orange;
-
+	transform: scale(1.4);
 }

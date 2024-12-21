@@ -1,7 +1,7 @@
-let puits = document.getElementById('inserting');
-let div = puits.appendChild(document.createElement("div"));
-let kat = div.appendChild(document.createElement("katex"));
-let inpt = div.appendChild(document.createElement("input"));
+let insertingContainer = document.getElementById('inserting');
+let childContainerDiv = insertingContainer.appendChild(document.createElement("div"));
+let katexElement = childContainerDiv.appendChild(document.createElement("katex"));
+let inputField = childContainerDiv.appendChild(document.createElement("input"));
 
 let asw1 = [
     0, 0, 0, 0, 0
@@ -17,15 +17,15 @@ let order = [
 
 function generer() {
     // Vider la div puits
-    puits.innerHTML = "";
+    insertingContainer.innerHTML = "";
     let a = rnd(10);
     let b = rnd(10);
     // Remplir le katex
-    kat.innerHTML = `\\sqrt\{${a} x + ${b}\}`;
+    katexElement.innerHTML = `\\sqrt\{${a} x + ${b}\}`;
     // Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
-    inpt.type = "text";
-    inpt.id = `input`;
-    inpt.class = "answers";
+    inputField.type = "text";
+    inputField.id = `input`;
+    inputField.class = "answers";
     // Mettre la réponse dans la liste 
     // la réponse c'est : -\frac{a}{2\sqrt{ax+b}};
     asw1[0] = a;
@@ -37,8 +37,8 @@ function generer() {
 
 //rajoute une racine
 function racine(){
-    inpt.value += ` \\sqrt{}`;
-    kat.innerHTML = inpt.value;
+    inputField.value += ` \\sqrt{}`;
+    katexElement.innerHTML = inputField.value;
     render_katex();
     if (order[0] == 0) {
         order[0] = 1;
@@ -49,8 +49,8 @@ function racine(){
 }
 //rajoute une fraction
 function frac(){
-    inpt.value += ` \\frac{}{}`;
-    kat.innerHTML = inpt.value;
+    inputField.value += ` \\frac{}{}`;
+    katexElement.innerHTML = inputField.value;
     render_katex();
     if (order[0] == 1){
         order[0] = 2;
@@ -66,14 +66,14 @@ function score() {
     let score = 0;
     
     // Récupérer l'élément avec pr id 'input0', 'input1'...
-    let inpt = document.getElementById(`input`);
-    let el1 = inpt.value[0];
-    let el2 = inpt.value[7];
-    let el3 = inpt.value[11];
-    let el4 = inpt.value[17];
-    let el5 = inpt.value[18];
-    let el6 = inpt.value[19];
-    let el7 = inpt.value[20];
+    let inputField = document.getElementById(`input`);
+    let el1 = inputField.value[0];
+    let el2 = inputField.value[7];
+    let el3 = inputField.value[11];
+    let el4 = inputField.value[17];
+    let el5 = inputField.value[18];
+    let el6 = inputField.value[19];
+    let el7 = inputField.value[20];
     // Si la valeur entrée par l'utilisateur dans le input correspond à la réponse enregistrée dans asw, rajouter un point, sinon rien.
     if ( (el1 == "-") && (el2 == asw1[0]) && (el3 == "2") && (el4 == asw1[0]) && (el5 == x) && (el6 == "+") && (el7 == asw2[0])) {
         score++;

@@ -1,5 +1,4 @@
-console.log('autorender.js loaded');
-
+console.log('autorender.js loaded'); //ceci permet de vérifer que le script est chargé
 
 function render_katex() {
 	katexs = document.getElementsByTagName('katex');
