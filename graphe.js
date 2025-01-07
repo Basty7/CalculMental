@@ -1,4 +1,4 @@
-let insertingContainer = document.getElementById('inserting');
+let insertingContainer = document.getElementById('insertinggraphe');
 
 let asw = [
     0, 0, 0
@@ -14,6 +14,7 @@ function generer() {
     // Créer un div avec un katex et un input
     // document.createElement(tag) créé un nouvel élément de forme <tag></tag>
     // parent.appendChild(enfant) place l'enfant en dernier élément à l'intérieur du parent (sans ça, l'élément n'est pas placé dans le document, et donc, pas affiché)
+    
     let innerInsertContainer = insertingContainer.appendChild(document.createElement("div"));
     let kat = insertingContainer.appendChild(document.createElement("p"));
     // puits.appendChild(document.createElement("br"));
@@ -55,9 +56,9 @@ function generer() {
 
     // Plotly pour afficher la coubre
     let data = [
-        { x: xValues1, y: yValues1, mode: "lines" },
-        { x: xValues2, y: yValues2, mode: "lines" },
-        { x: xValues3, y: yValues3, mode: "lines" }
+        { x: xValues1, y: yValues1, mode: "lines", name : "droite 1"},
+        { x: xValues2, y: yValues2, mode: "lines", name : "droite 2"},
+        { x: xValues3, y: yValues3, mode: "lines", name : "droite 3"}
     ];
     let layout = { title: "y = ax+b" };
     Plotly.newPlot(innerInsertContainer, data, layout);
