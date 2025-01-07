@@ -11,10 +11,12 @@ h1 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+	margin: 0 1em;
 }
 
 .pages>* {
-	padding: 1em;
+	padding: 0.6em;
+	margin: .3em;
 	background-color: lightcoral;
 	border-radius: 1em;
 	transition: transform .2s;
@@ -24,5 +26,5 @@ h1 {
 
 .pages :hover {
 	background-color: orange;
-	transform: scale(1.4);
+	transform: scale(1.3);
 }
