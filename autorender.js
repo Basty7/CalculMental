@@ -9,3 +9,9 @@ function render_katex() {
 		});
 	}
 }
+
+function render_katex_in_element(element) {
+	katex.render(element.textContent, element, {
+		throwOnError: false
+	});
+}
