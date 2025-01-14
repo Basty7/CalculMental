@@ -1,5 +1,73 @@
+/* Feuille de style pour toutes les pages */
+
+html {
+	width: 100vw;
+	background-color: lightblue;
+	margin: 0;
+	overflow-x: hidden;
+	
+}
+
+body {
+	margin: 0 1em;
+	background-color: lightblue;
+}
+
+@font-face {
+	font-family: Poppins;
+	src: url(assets/fonts/Poppins/Poppins-Regular.ttf);
+}
+
+h1 {
+	text-align: center;
+	font-size: 2.5em;
+
+}
+
+h2 {
+	text-align: center;
+	font-size: 2em;
+	text-decoration: underline;
+}
+
+p,
+a,
+h1,
+h2,
+button {
+	font-family: 'Poppins';
+}
 
 
+#score {
+	font-family: helvetica;
+	font-size: 50px;
+}
+
+#score.vbad {
+	color: red;
+}
+
+#score.bad {
+	color: rgb(82, 76, 76);
+}
+
+#score.good {
+	color: #37692c;
+}
+
+#score.vgood {
+	color: #39f60f;
+}
+
+.katex-question {
+	font-size: 1em;
+	width: 10em;
+}
+
+.answers {
+	width: 8em;
+}
 
 
 
@@ -10,8 +78,8 @@
 	margin: 20px;
 }
 
-#inserting > div {
+#inserting>div {
 	width: 100%;
 	display: flex;
-	justify-content:space-between;
+	justify-content: space-between;
 }

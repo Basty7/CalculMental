@@ -7,7 +7,6 @@
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" media="(prefers-color-scheme: light)">
     <link rel="shortcut icon" href="assets/favicon-dark.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
     <!-- <link rel="stylesheet" href="simplifi.css"> -->
-    <link rel="stylesheet" href="all.css">
     <!-- KaTeX -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
         integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
@@ -22,14 +21,16 @@
     <script src="autorender.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
     <script src="graphe.js" defer></script>
+    <link rel="stylesheet" href="graphes.css">
+
 </head>
 
 <body>
     <nav class="navbar"></nav>
-    <h1>Reconnaissance de courbe affine</h1>
+    <h1>Reconnaissance de courbes affines</h1>
 
     <button onclick="generer()" type="button"> Générer des courbes de fonctions affines </button>
-    <div id="inserting">
+    <div id="insertinggraphe">
         <!-- ici les calculs -->
     </div>
 
