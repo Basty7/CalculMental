@@ -12,18 +12,15 @@ let asw2 = [
 	0, 0, 0, 0, 0
 ];
 
-let f1 = 0;
-let f2 = 0;
-let f3 = 0;
+let type = 0;
 
 function generer() {
 	let choix = rnd(3);
-		if (choix == 0) {
-		// Vider la div puits
-		let a = 2*rnd(5)+1;
+	if (choix == 0) {
+		let a = 2 * rnd(5) + 1;
 		let b = rnd(10);
 		// Remplir le katex
-		katexElement.innerHTML =  `f(x) = \\sqrt\{${a} x + ${b}\} ; f'(x) = ` ;
+		katexElement.innerHTML = `f(x) = \\sqrt\{${a} x + ${b}\} ; f'(x) = `;
 		// Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
 		inputField.type = "text";
 		inputField.id = `input`;
@@ -32,27 +29,61 @@ function generer() {
 		// la réponse c'est : -\frac{a}{2\sqrt{ax+b}};
 		asw1[0] = a;
 		asw2[0] = b;
-		f1 = 0;
+		type = 0;
 		// Render les maths
+		render_katex();
+	}
+	if (choix == 1) {
+		let a = rnd(8) + 1;
+		let b = 11-a;
+		katexElement.innerHTML = `f(x) = \\ln(${a}x+${b}) ; f'(x) = `;
+		inputField.type = "text";
+		inputField.id = `input`;
+		inputField.class = "answers";
+		//la réponse c'est : \frac{a}{ax+b};
+		asw1[0] = a;
+		asw2[0] = b;
+		type = 1;
+		render_katex();
+	}
+	if (choix == 2) {
+		
+		let a = rnd(10);
+		let b = rnd(10);
+		let d = rnd(10);
+		katexElement.innerHTML = `f(x) =  e^{(${a}x+${b})} + ${d} ; f'(x) = `;
+		inputField.type = "text";
+		inputField.id = `input`;
+		inputField.class = "answers";
+		//la réponse c'est : ae^(ax+b);
+		asw1[0]=a;
+		asw2[0] = b;
+		type = 2;
 		render_katex();
 	}
 }
 
 //rajoute une racine
-function racine(){
+function racine() {
 	inputField.value += ` \\sqrt{}`;
 	katexElRep.innerHTML = inputField.value;
 	render_katex_in_element(katexElRep);
 }
 //rajoute une fraction
-function frac(){
+function frac() {
 	inputField.value += ` \\frac{}{}`;
 	katexElRep.innerHTML = inputField.value;
 	render_katex_in_element(katexElRep);
-} 
+}
 
+//rajoute une exponentielle
+function expo() {
+	inputField.value += `\e^{}`;
+	katexElRep.innterHTML = inputField.value;
+	render_katex_in_element(katexElRep);
+}
 //pour afficher le latex
-function latex(){
+function latex() {
 	katexElRep.innerHTML = inputField.value;
 	render_katex_in_element(katexElRep);
 }
@@ -60,40 +91,57 @@ function latex(){
 function score() {
 
 	let score = 0;
-	
-	// Récupérer l'élément avec pr id 'input0', 'input1'...
+
 	let inputField = document.getElementById(`input`);
-	let el1 = inputField.value[0];
-	let el2 = inputField.value[7];
-	let el3 = inputField.value[10];
-	let el4 = inputField.value[17];
-	let el5 = inputField.value[18];
-	let el6 = inputField.value[19];
-	let el7 = inputField.value[20];
-	// Si la valeur entrée par l'utilisateur dans le input correspond à la réponse enregistrée dans asw, rajouter un point, sinon rien.
-	if ( (el1 == "-") && (el2 == asw1[0]) && (el3 == "2") && (el4 == asw1[0]) && (el5 == "x") && (el6 == "+") && (el7 == asw2[0])) {
-		score++;
+	// Récupérer l'élément avec pr id 'input0', 'input1'...
+	if (type == 0) {
+		let el1 = inputField.value[0];
+		let el2 = inputField.value[7];
+		let el3 = inputField.value[10];
+		let el4 = inputField.value[17];
+		let el5 = inputField.value[18];
+		let el6 = inputField.value[19];
+		let el7 = inputField.value[20];
+		// Si la valeur entrée par l'utilisateur dans le input correspond à la réponse enregistrée dans asw, rajouter un point, sinon rien.
+		if ((el1 == "-") && (el2 == asw1[0]) && (el3 == "2") && (el4 == asw1[0]) && (el5 == "x") && (el6 == "+") && (el7 == asw2[0])) {
+			score++;
+		}
+
+	}
+	if(type == 1) {
+		//la réponse c'est : \frac{a}{ax+b};
+		let el1 = inputField.value[1];
+		let el2 = inputField.value[6];
+		let el3 = inputField.value[9];
+		let el4 = inputField.value[10];
+		let el5 = inputField.value[12];
+
+		if ( (el1 == "f") && (el2 == asw1[0] ) && (el3 == asw1[0]) && ( el4 == "x") && (el5 == asw2[0])){
+			score++;
+		}
+	}
+	if (type == 2) {
+		// réponse : ae^(ax+b)
+		let el1 = inputField.value[0];
+		let el2 = inputField.value[1];
+		let el3 = inputField.value[4];
+		let el4 = inputField.value[5];
+		let el5 = inputField.value[7];
+		if ( (el1 == asw1[0]) && (el2 == "e") && (el3 == asw1[0]) && (el4 == "x") && (el5 == asw2[0]) ) {
+			score++;
+		}
+
 	}
 	// Récupère l'élément destiné à contenir l'affichage du score
 	let scdiv = document.getElementById('score');
-	// Changer son texte pour afficher le score obtenu
-	scdiv.innerHTML = `Votre score est de ${score}/5`;
 	// En fonction du score obtenu, rajouter un petit mot et changer la classe de l'élément (pour styling plus tard)
-	if (score == 5) {
+	if (score == 1) {
 		scdiv.innerHTML += " Bravo!";
 		scdiv.className = "vgood"
 	}
-	else if (score <= 1) {
-		scdiv.innerHTML += " Révisez!";
+	else if (score == 0) {
+		scdiv.innerHTML += " Révisez! (ou revoyez votre code...)";
 		scdiv.className = "vbad";
-	}
-	else if (score < 4) {
-		scdiv.innerHTML += " Vous pouvez faire mieux!";
-		scdiv.className = "bad";
-	}
-	else {
-		scdiv.innerHTML += " Pas mal!";
-		scdiv.className = "good";
 	}
 
 }
