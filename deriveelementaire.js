@@ -1,31 +1,32 @@
 function derivepolynome(polynome) {
-	let lesmonomes = polynome.split(" + ");
-	let polynomederive = "";
-	for (let i = 0; i < lesmonomes.length; i++) {
-		let monome = lesmonomes[i].trim(); // Enlève les espaces
-		if (monome != "") {
-			polynomederive += derivemonome(monome) + " + ";
+	let polyList = ConvertPolynomeToList(polynome);
+	let result = []
+	console.log(polyList);
+	
+	if (polyList[1] != 0 && polyList[1]) { result.push(polyList[1]) }
+	if (polyList[2] != 0 && polyList[2]) { result.push(`${2 * polyList[2]}x`) }
+	for (let exp in polyList) {
+		if (polyList[exp] * exp != 0 && exp > 2) {
+			result.push(`${polyList[exp] * exp}x^${exp - 1}`)
+			console.log("been here", exp);
 		}
 	}
-	// Enlever le " + "
-	if (polynomederive.endsWith(" + ")) {
-		polynomederive = polynomederive.slice(0, -3);
-	}
-	return polynomederive;
+	result.reverse()
+	return result.join(" + ");
 }
 
-function derivemonome(monome) {
-	let monomelist = monome.split("x^");
-	let coeff = Number(monomelist[0].trim()); // Récuperer le coeff devant le x, --> trim() Enlever les espaces
-	let expPart = monomelist[1].trim();
-	let exp;
-	if (expPart.includes("{") && expPart.includes("}")) {
-		exp = Number(expPart.split(/\{|\}/)[1]); // Extraire l'exposant si il est dans {}
-	} else {
-		exp = Number(expPart); // Extraire l'exposant si il n'est pas dans {}
-	}
-	return `${coeff * exp}x^${exp - 1}`;
-}
+// function derivemonome(monome) {
+// 	let monomelist = monome.split("x^");
+// 	let coeff = Number(monomelist[0].trim()); // Récuperer le coeff devant le x, --> trim() Enlever les espaces
+// 	let expPart = monomelist[1].trim();
+// 	let exp;
+// 	if (expPart.includes("{") && expPart.includes("}")) {
+// 		exp = Number(expPart.split(/\{|\}/)[1]); // Extraire l'exposant si il est dans {}
+// 	} else {
+// 		exp = Number(expPart); // Extraire l'exposant si il n'est pas dans {}
+// 	}
+// 	return `${coeff * exp}x^${exp - 1}`;
+// }
 
 function additionpolynome(Px, Qx) {
 	let PasList = ConvertPolynomeToList(Px);
@@ -50,20 +51,32 @@ function additionpolynome(Px, Qx) {
 }
 
 function ConvertPolynomeToList(polynome) {
-	polyList = polynome.split(" + ");
-	expslist = [];
+	let polyList = polynome.split(" + ");
+	let expslist = [];
+	console.log(polyList);
+
 	for (let monome of polyList) {
-		let coeff = Number(monome.split("x^")[0].trim());
-		let expPart = monome.split("x^")[1].trim();
-		let exp;
-		if (expPart.includes("{") && expPart.includes("}")) {
-			exp = Number(expPart.split(/\{|\}/)[1].trim()); // Extraire l'exposant si il est dans {}
-		} else {
-			exp = Number(expPart.trim()); // Extraire l'exposant si il n'est pas dans {}
+		console.log("there");
+
+		if (!monome.includes("x")) {
+			expslist[0] = Number(monome.trim())
 		}
-		expslist[exp] = coeff;
+		else if (!monome.includes("x^")) {
+			expslist[1] = Number(monome.split("x")[0].trim())
+		}
+		else {
+			let coeff = Number(monome.split("x^")[0].trim())||1; // le ||1 permet de remplacer par 1 si la fonction Number échoue
+			let expPart = monome.split("x^")[1].trim();
+			let exp;
+			if (expPart.includes("{") && expPart.includes("}")) {
+				exp = Number(expPart.split(/\{|\}/)[1].trim()); // Extraire l'exposant si il est dans {}
+			} else {
+				exp = Number(expPart.trim()); // Extraire l'exposant si il n'est pas dans {}
+			}
+			expslist[exp] = coeff;
+		}
 	}
-	return expslist;
+	return new Array(expslist.length).fill(0).map((_, i) => expslist[i] || 0);;
 }
 
 function derviveexp(fn) {
