@@ -86,11 +86,14 @@ function score() {
 
 }
 
-
-
 document.addEventListener('keydown', (event) => {
     if (event.key == 'Enter') {
         score();
     }
 });
 
+document.getElementById("add").addEventListener("click", () => {
+    let P = document.getElementById("P").value;
+    let Q = document.getElementById("Q").value;
+    document.getElementById("ins").innerHTML = additionpolynome(P, Q)
+})

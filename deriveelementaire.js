@@ -16,7 +16,7 @@ function derivepolynome(polynome) {
 
 function derivemonome(monome) {
 	let monomelist = monome.split("x^");
-	let coeff = Number(monomelist[0].trim()); // Enlever les espaces
+	let coeff = Number(monomelist[0].trim()); // Récuperer le coeff devant le x, --> trim() Enlever les espaces
 	let expPart = monomelist[1].trim();
 	let exp;
 	if (expPart.includes("{") && expPart.includes("}")) {
@@ -28,7 +28,42 @@ function derivemonome(monome) {
 }
 
 function additionpolynome(Px, Qx) {
-	let monomes = polynome.split(" + ");
+	let PasList = ConvertPolynomeToList(Px);
+	let QasList = ConvertPolynomeToList(Qx);
+	let maxLength = Math.max(PasList.length, QasList.length);
+
+	// Code de Copilot... map() parcourt le tableau pour associer à chaque élément son nombre s'il est défini, 0 sinon
+	PasList = new Array(maxLength).fill(0).map((_, i) => PasList[i] || 0);
+	QasList = new Array(maxLength).fill(0).map((_, i) => QasList[i] || 0);
+
+	// convertir la liste des exposants en polynome
+	let result = []
+	for (let i in PasList) {
+		sommecoeff = PasList[i] + QasList[i];
+		if (sommecoeff !== 0) {
+			result.push(`${sommecoeff}x^${i}`);
+		}
+	}
+	result.reverse()
+	return result.join(" + ")
+
+}
+
+function ConvertPolynomeToList(polynome) {
+	polyList = polynome.split(" + ");
+	expslist = [];
+	for (let monome of polyList) {
+		let coeff = Number(monome.split("x^")[0].trim());
+		let expPart = monome.split("x^")[1].trim();
+		let exp;
+		if (expPart.includes("{") && expPart.includes("}")) {
+			exp = Number(expPart.split(/\{|\}/)[1].trim()); // Extraire l'exposant si il est dans {}
+		} else {
+			exp = Number(expPart.trim()); // Extraire l'exposant si il n'est pas dans {}
+		}
+		expslist[exp] = coeff;
+	}
+	return expslist;
 }
 
 function derviveexp(fn) {
