@@ -12,78 +12,28 @@ let asw2 = [
 	0, 0, 0, 0, 0
 ];
 
-let type = 0;
-
 function generer() {
-	let choix = rnd(3);
-	if (choix == 0) {
-		let a = rnd(10);
-		let b = rnd(10);
-        let c = rnd(10) ;
-        let d = rnd(10);
-		// Remplir le katex
-		katexElement.innerHTML = `f(x) = ax^3 + bx^2 + cx + d ; f'(x) = `;
-		// Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
-		inputField.type = "text";
-		inputField.id = `input`;
-		inputField.class = "answers";
-		// Mettre la réponse dans la liste 
-		// la réponse c'est : -\frac{a}{2\sqrt{ax+b}};
-		asw1[0] = a;
-		asw2[0] = b;
-		type = 0;
-		// Render les maths
-		render_katex();
-	}
-	if (choix == 1) {
-		let a = rnd(8) + 1;
-		let b = 11-a;
-		katexElement.innerHTML = `f(x) = \\ln(${a}x+${b}) ; f'(x) = `;
-		inputField.type = "text";
-		inputField.id = `input`;
-		inputField.class = "answers";
-		//la réponse c'est : \frac{a}{ax+b};
-		asw1[0] = a;
-		asw2[0] = b;
-		type = 1;
-		render_katex();
-	}
-	if (choix == 2) {
-		
-		let a = rnd(10);
-		let b = rnd(10);
-		let d = rnd(10);
-		katexElement.innerHTML = `f(x) =  e^{(${a}x+${b})} + ${d} ; f'(x) = `;
-		inputField.type = "text";
-		inputField.id = `input`;
-		inputField.class = "answers";
-		//la réponse c'est : ae^(ax+b);
-		asw1[0]=a;
-		asw2[0] = b;
-		type = 2;
-		render_katex();
-	}
+
+	let a = 4*(rnd(9)+1);
+	let b = 3*(rnd(9)+1);
+	let c = 2*rnd(9) +2;
+	let d = rnd(9)+1;
+	// Remplir le katex
+	katexElement.innerHTML = `f'(x) = ${a}x^3 + ${b}x^2 + ${c}x + ${d} ; f(x) = `;
+	// Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
+	inputField.type = "text";
+	inputField.id = `input`;
+	inputField.class = "answers";
+	// Mettre la réponse dans la liste 
+	// la réponse c'est : a/4x^4+b/3x^3+c:2x^2+dx ;
+	asw1[0] = a/4;
+	asw1[1] = b/3;
+	asw1[2] = c/2;
+	asw1[3] = d;
+	// Render les maths
+	render_katex_in_element(katexElement);
 }
 
-//rajoute une racine
-function racine() {
-	inputField.value += ` \\sqrt{}`;
-	katexElRep.innerHTML = inputField.value;
-	render_katex_in_element(katexElRep);
-}
-//rajoute une fraction
-function frac() {
-	inputField.value += ` \\frac{}{}`;
-	katexElRep.innerHTML = inputField.value;
-	render_katex_in_element(katexElRep);
-}
-
-//rajoute une exponentielle
-function expo() {
-	inputField.value += `\e^{}`;
-	katexElRep.innterHTML = inputField.value;
-	render_katex_in_element(katexElRep);
-}
 //pour afficher le latex
 function latex() {
 	katexElRep.innerHTML = inputField.value;
@@ -96,27 +46,10 @@ function score() {
 
 	let inputField = document.getElementById(`input`);
 	// Récupérer l'élément avec pr id 'input0', 'input1'...
-	if (type == 0) {
         //réponse : 
 		// Si la valeur entrée par l'utilisateur dans le input correspond à la réponse enregistrée dans asw, rajouter un point, sinon rien.
-		if () {
-			score++;
-		}
-
-	}
-	if(type == 1) {
-		//la réponse c'est : 
-
-		if ( ){
-			score++;
-		}
-	}
-	if (type == 2) {
-		// réponse : 
-		if ( ) {
-			score++;
-		}
-
+	if ( (inputField.value[0] == asw1[0]) && (inputField.value[3] == 4)&& (inputField.value[5] == asw1[1] ) && (inputField.value[8] == 3) && (inputField.value[10] == asw1[2]) && (inputField.value[13] == 2) && (inputField.value[15]==asw1[3])) {
+		score++;
 	}
 	// Récupère l'élément destiné à contenir l'affichage du score
 	let scdiv = document.getElementById('score');
