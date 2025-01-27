@@ -94,7 +94,8 @@ document.addEventListener('keydown', (event) => {
 
 document.getElementById("add").addEventListener("click", () => {
     let P = document.getElementById("P").value;
-    // let Q = document.getElementById("Q").value;
+    let Q = document.getElementById("Q").value;
     // document.getElementById("ins").innerHTML = additionpolynome(P, Q)
-    document.getElementById("ins").innerHTML = derivepolynome(P);
+    // document.getElementById("ins").innerHTML = derivepolynome(P);
+    document.getElementById("ins").innerHTML = mutipliepolynome(P,Q);
 })
