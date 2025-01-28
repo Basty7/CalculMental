@@ -23,12 +23,33 @@ function generer() {
         // Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
         inpt.type = "text";
         inpt.id = `input${pas}`;
-        inpt.class = "answers";
+        inpt.className = "answers";
+        kat.className = "katex-question";
+        div.className = "question-answer";
         // Mettre la réponse dans la liste 
         asw[pas] = x-y;
+        if (pas != 9) {
+            inpt.addEventListener('keydown', (event) => {
+                if (event.key == 'Enter') {
+                    event.stopPropagation(); // Empêcher les actions d'autres EventListeners
+                    right(); // Déplacer le scroll vers la droite (fonction définie plus bas)
+                    document.getElementById(`input${pas + 1}`).select(); // Déplacer le curseur sur l'input suivant
+                }
+            })
+        }
     }
     // Render les maths
     render_katex();
+}
+
+function right() {
+    puits.parentElement.scrollLeft += window.innerWidth;
+    // puits.scrollLeft += 100;
+}
+
+function left() {
+    puits.parentElement.scrollLeft -= window.innerWidth;
+    // puits.scrollLeft -= 100;
 }
 
 function score() {

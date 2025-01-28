@@ -38,14 +38,23 @@ function generer() {
             // Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css);
             inpt.type = "text";
             inpt.id = `input${pas}`;
-            inpt.class = "answers";
+            inpt.className = "answers";
             // Mettre une deuxième zone pour le texte
             inpt2.type = "text";
             inpt2.id = `inputy${pas}`;
-            inpt2.class = "answers";
+            inpt2.className = "answers";
             // Mettre la réponse dans la liste 
             asw1[pas] = z**y;
             asw2[pas] = x;
+            if (pas != 9) {
+                inpt.addEventListener('keydown', (event) => {
+                    if (event.key == 'Enter') {
+                        event.stopPropagation(); // Empêcher les actions d'autres EventListeners
+                        right(); // Déplacer le scroll vers la droite (fonction définie plus bas)
+                        document.getElementById(`input${pas + 1}`).select(); // Déplacer le curseur sur l'input suivant
+                    }
+                })
+            }
 
         }
         else {
@@ -62,19 +71,39 @@ function generer() {
 
             inpt.type = "text"; //zone réponse 1
             inpt.id = `input${pas}`;
-            inpt.class = "answers";
+            inpt.className = "answers";
 
             inpt2.type = "text"; //zone réponse 2
             inpt2.id = `inputy${pas}`;
-            inpt2.class = "answers";
+            inpt2.className = "answers";
 
             asw1[pas] = x; //set la valeur de la réponse 1
             asw2[pas] = y; //set la valeur de la réponse 2
+            if (pas != 9) {
+                inpt.addEventListener('keydown', (event) => {
+                    if (event.key == 'Enter') {
+                        event.stopPropagation(); // Empêcher les actions d'autres EventListeners
+                        right(); // Déplacer le scroll vers la droite (fonction définie plus bas)
+                        document.getElementById(`input${pas + 1}`).select(); // Déplacer le curseur sur l'input suivant
+                    }
+                })
+            }
         }
     }
     // Render les maths
     render_katex();
 }
+
+function right() {
+    puits.parentElement.scrollLeft += window.innerWidth;
+    // puits.scrollLeft += 100;
+}
+
+function left() {
+    puits.parentElement.scrollLeft -= window.innerWidth;
+    // puits.scrollLeft -= 100;
+}
+
 
 function score() {
 

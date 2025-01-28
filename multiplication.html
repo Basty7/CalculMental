@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>sqrt?4->2</title>
+    <title>Vers l'infini et l'au-delà</title>
     <!-- Icône -->
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" media="(prefers-color-scheme: light)">
     <link rel="shortcut icon" href="assets/favicon-dark.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
@@ -27,10 +27,15 @@
     <h1>Les multiplications</h1>
 
     <button onclick="generer()" type="button"> Générer des multiplications aléatoires </button>
-    <div id="inserting">
-        <!-- ici viendront multipli -->
-    </div>
-
+    <div class="bts">
+		<button onclick="left()">Scroll left</button>
+		<button onclick="right()">Scroll right</button>
+	</div>
+	<div class="insParent">
+		<div id="inserting">
+			<!-- ici viendront les additions -->
+		</div>
+	</div>
     <button class="bouton" type="button" onclick="score()"> Voir son score </button>
     <div id="score">
         <!-- ici viendra le score -->
