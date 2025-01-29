@@ -5,6 +5,7 @@ html {
 	background-color: lightblue;
 	overflow: hidden;
 	margin: 0;
+	font-family: "Poppins";
 }
 
 body {
@@ -84,7 +85,7 @@ p,a,button {
 /* Score styling */
 
 #score {
-	font-family: helvetica;
+	font-family: "Poppins";
 	font-size: 50px;
 }
 
