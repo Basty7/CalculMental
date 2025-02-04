@@ -26,7 +26,7 @@ function generer() {
 		inputField.id = `input`;
 		inputField.class = "answers";
 		// Mettre la réponse dans la liste 
-		// la réponse c'est : -\frac{a}{2\sqrt{ax+b}};
+		// la réponse c'est : \frac{a}{2\sqrt{ax+b}};
 		asw1[0] = a;
 		asw2[0] = b;
 		type = 0;
@@ -95,15 +95,14 @@ function score() {
 	let inputField = document.getElementById(`input`);
 	// Récupérer l'élément avec pr id 'input0', 'input1'...
 	if (type == 0) {
-		let el1 = inputField.value[0];
-		let el2 = inputField.value[7];
-		let el3 = inputField.value[10];
-		let el4 = inputField.value[17];
-		let el5 = inputField.value[18];
-		let el6 = inputField.value[19];
-		let el7 = inputField.value[20];
+		let el2 = inputField.value[6];
+		let el3 = inputField.value[9];
+		let el4 = inputField.value[16];
+		let el5 = inputField.value[17];
+		let el6 = inputField.value[18];
+		let el7 = inputField.value[19];
 		// Si la valeur entrée par l'utilisateur dans le input correspond à la réponse enregistrée dans asw, rajouter un point, sinon rien.
-		if ((el1 == "-") && (el2 == asw1[0]) && (el3 == "2") && (el4 == asw1[0]) && (el5 == "x") && (el6 == "+") && (el7 == asw2[0])) {
+		if ( (el2 == asw1[0]) && (el3 == "2") && (el4 == asw1[0]) && (el5 == "x") && (el6 == "+") && (el7 == asw2[0])) {
 			score++;
 		}
 

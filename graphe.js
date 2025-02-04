@@ -70,7 +70,7 @@ function generer() {
     let inpt2text0 = insertingContainer.appendChild(document.createElement("katex"));
     let inpt20 = insertingContainer.appendChild(document.createElement("input"));
 
-    inpttext0.innerHTML = "0. y= ";
+    inpttext0.innerHTML = "1. y= ";
 
     // Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
     inpt0.type = "text";
@@ -94,7 +94,7 @@ function generer() {
     let inpt2text1 = insertingContainer.appendChild(document.createElement("katex"));
     let inpt21 = insertingContainer.appendChild(document.createElement("input"));
 
-    inpttext1.innerHTML = "1. y= ";
+    inpttext1.innerHTML = "2. y= ";
 
     // Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
     inpt1.type = "text";
@@ -118,7 +118,7 @@ function generer() {
     let inpt2text2 = insertingContainer.appendChild(document.createElement("katex"));
     let inpt22 = insertingContainer.appendChild(document.createElement("input"));
 
-    inpttext2.innerHTML = "2. y= ";
+    inpttext2.innerHTML = "3. y= ";
 
     // Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
     inpt2.type = "text";

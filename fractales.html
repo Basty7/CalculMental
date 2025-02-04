@@ -3,12 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Vers l'infini et l'au-delà</title>
+    <title>Vers l'infiniment petit</title>
     <!-- Icône -->
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" media="(prefers-color-scheme: light)">
     <link rel="shortcut icon" href="assets/favicon-dark.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
     <!-- Feuilles CSS -->
-    <link rel="stylesheet" href="multiplication.css">
     <link rel="stylesheet" href="all.css">
     <!-- KaTeX -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
@@ -19,32 +18,30 @@
     <!-- Other imports -->
     <script src="main.js"></script>
     <script src="autorender.js"></script>
-    <script src="multiplication.js" defer></script>
+    <script src="fractales.js" defer></script>
 </head>
 
 <body>
     <nav class="navbar"></nav>
-    <h1>Les multiplications</h1>
+    <h1>Les jolies fractales</h1>
 
-    <button onclick="generer()" type="button"> Générer des multiplications aléatoires </button>
-    <div class="bts">
-		<button onclick="left()">Scroll left</button>
-		<button onclick="right()">Scroll right</button>
-	</div>
+    <button onclick="generer()" type="button"> Générer une fractale aléatoire </button>
 	<div class="insParent">
-		<div id="inserting">
+		<div id="insertinggraphe">
 			<!-- ici viendront les additions -->
 		</div>
 	</div>
+    <button class="bouton" type="button" onclick = score0()"> Un flocon de Koch</button><br>
+    <button class="bouton" type="button" onclick = score1()"> Une fractale de Julia</button><br>
+    <button class="bouton" type="button" onclick = score2()"> L'ensemble de Mandelbrot</button><br>
+    <button class="bouton" type="button" onclick = score3()"> Une éponge de Menger</button><br>
+    <button class="bouton" type="button" onclick = score4()"> Un triangle de Sierpinski</button> <br> <br>
     <button class="bouton" type="button" onclick="score()"> Voir son score </button>
     <div id="score">
         <!-- ici viendra le score -->
     </div>
-    <!-- box pour le score /10 -->
+    <!-- box pour le résultat-->
 
-    <h2>Tips & Tricks</h2>
-    <p> Décomposer la multiplication en de petites additions <br> Visualiser le calcul<br>  Se souvenir de ses identité remarquables
-    <br> S'entraîner sur la page   <a href = "additions.html" class = "lien"> Addition</a> de notre site</p>
 </body>
 
 </html>

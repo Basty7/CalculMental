@@ -7,7 +7,7 @@ let asw = [
 function generer() {
     // Pour les valeurs de pas dans [0,10[ (10 valeurs)
     for (let pas = 0; pas < 10; pas++) {
-        let x = rnd(100);
+        let x = rnd(30);
         let y = rnd(100);
         let z = x*y;
         // Créer un div avec un katex et un input
