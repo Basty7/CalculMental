@@ -8,6 +8,7 @@ html {
 	font-family: "Poppins";
 }
 
+
 body {
 	margin: 0 1em;
 	background-color: lightblue;
@@ -21,7 +22,7 @@ body {
 h1 {
 	text-align: center;
 	font-size: 3em;
-
+	
 }
 
 h2 {
@@ -42,6 +43,29 @@ p,a,button {
 	font-size: 1.7em;
 }
 
+/* Google fonts: icon */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+/* Home button */
+
+.homebtn {
+	position: fixed;
+	margin: 1em;
+	transition: .3s;
+}
+
+.homebtn:hover {
+	transform: scale(1.3) rotate(180deg);
+	transition: .3s;
+}
+
+/* Insertingdiv */
 
 .insParent {
 	width: 100vw;
@@ -108,7 +132,7 @@ p,a,button {
 /* Reste */
 
 .katex-question {
-	font-size: 1em;
+	font-size: 2em;
 	width: 10em;
 }
 
