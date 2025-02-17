@@ -3,7 +3,7 @@
 html {
 	width: 100vw;
 	background-color: lightblue;
-	overflow: hidden;
+	overflow-x: hidden;
 	margin: 0;
 	font-family: "Poppins";
 }
@@ -56,12 +56,22 @@ p,a,button {
 
 .homebtn {
 	position: fixed;
-	margin: 1em;
+	margin: .5em;
+	text-decoration: none;
+	color: black;
+	font-size: 2em;
+}
+
+#homebtn {
+	font-size: 1.7em;
+}
+
+.homebtn {
 	transition: .3s;
 }
 
 .homebtn:hover {
-	transform: scale(1.3) rotate(180deg);
+	transform: scale(1.3) rotate(-180deg);
 	transition: .3s;
 }
 

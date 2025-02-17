@@ -2,43 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>sqrt?4->2</title>
-    <!-- Icône -->
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" media="(prefers-color-scheme: light)">
-    <link rel="shortcut icon" href="assets/favicon-dark.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
-    <!-- Feuilles CSS -->
-    <link rel="stylesheet" href="multiplication.css">
-    <link rel="stylesheet" href="all.css">
-    <!-- KaTeX -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
-        integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
-        integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg"
-        crossorigin="anonymous"></script>
-    <!-- Other imports -->
-    <script src="main.js"></script>
-    <script src="autorender.js"></script>
-    <script src="multiplication.js" defer></script>
+	<meta charset="UTF-8">
+	<title>sqrt?4->2</title>
+	<!-- Icône -->
+	<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" media="(prefers-color-scheme: light)">
+	<link rel="shortcut icon" href="assets/favicon-dark.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
+	<!-- Feuilles CSS -->
+	<link rel="stylesheet" href="multiplication.css">
+	<link rel="stylesheet" href="all.css">
+	<!-- KaTeX -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+		integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+		integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg"
+		crossorigin="anonymous"></script>
+	<!-- Other imports -->
+	<script src="main.js"></script>
+	<script src="autorender.js"></script>
+	<script src="multiplication.js" defer></script>
 </head>
 
 <body>
-    <nav class="navbar"></nav>
-    <h1>Les multiplications</h1>
+	<a id="homebtn" class="material-symbols-outlined homebtn" href="index.html" title="Retourner au menu">
+		double_arrow
+	</a>
+	<h1>Les multiplications</h1>
 
-    <button onclick="generer()" type="button"> Générer des multiplications aléatoires </button>
-    <div id="inserting">
-        <!-- ici viendront multipli -->
-    </div>
+	<button onclick="generer()" type="button"> Générer des multiplications aléatoires </button>
+	<div id="inserting">
+		<!-- ici viendront multipli -->
+	</div>
 
-    <button class="bouton" type="button" onclick="score()"> Voir son score </button>
-    <div id="score">
-        <!-- ici viendra le score -->
-    </div>
-    <!-- box pour le score /10 -->
+	<button class="bouton" type="button" onclick="score()"> Voir son score </button>
+	<div id="score">
+		<!-- ici viendra le score -->
+	</div>
+	<!-- box pour le score /10 -->
 
-    <h2>Tips & Tricks</h2>
-    <p> Décomposer la multiplication en de petites additions <br> Visualiser le calcul</p>
+	<h2>Tips & Tricks</h2>
+	<p> Décomposer la multiplication en de petites additions <br> Visualiser le calcul</p>
 </body>
 
 </html>
