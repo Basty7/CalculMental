@@ -69,6 +69,28 @@ button {
 	width: 8em;
 }
 
+/* Home button */
+
+.homebtn {
+	position: fixed;
+	margin: .5em;
+	text-decoration: none;
+	color: black;
+	font-size: 2em;
+}
+
+#homebtn {
+	font-size: 1.7em;
+}
+
+.homebtn {
+	transition: .3s;
+}
+
+.homebtn:hover {
+	transform: scale(1.5) rotate(-180deg);
+	transition: .3s;
+}
 
 
 
