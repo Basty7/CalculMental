@@ -2,34 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>0+0=latêteàtoto</title>
-    <!-- <link rel="stylesheet" href="simplifi.css"> -->
-    <link rel="stylesheet" href="all.css">
-    <!-- KaTeX -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
-        integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
-        integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.2.1/math.min.js" integrity="sha512-iz0PG1GzN2wn3am0/kPxUH64fB2WRTfqQP6Y1DKgqUSE0UmeUMvXsCtUr6PCvhtSnw71q6VCHYiiFL7P4xD2Aw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- Other imports -->
-    <script src="main.js"></script>
-    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
-    <script src="autorender.js"></script>
-    <script src="test2.js" defer></script>
+	<meta charset="UTF-8">
+	<title>0+0=latêteàtoto</title>
+	<!-- <link rel="stylesheet" href="simplifi.css"> -->
+	<link rel="stylesheet" href="all.css">
+	<!-- KaTeX -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+		integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+		integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.2.1/math.min.js"
+		integrity="sha512-iz0PG1GzN2wn3am0/kPxUH64fB2WRTfqQP6Y1DKgqUSE0UmeUMvXsCtUr6PCvhtSnw71q6VCHYiiFL7P4xD2Aw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<!-- Other imports -->
+	<script src="main.js"></script>
+	<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+	<script src="autorender.js"></script>
+	<script src="test2.js" defer></script>
 </head>
 
 <body>
-    <nav class="navbar"></nav>
-    <h1>TEST 2</h1>
+	<a id="homebtn" class="material-symbols-outlined homebtn" href="index.html" title="Retourner au menu">
+		double_arrow
+	</a>
+	<h1>TEST 2</h1>
 
-    <button onclick = "render()" type ="button"> Afficher l'expression mathématique</button>
-    <button onclick = "racine()" type="button"> Racine</button> 
-    <button onclick = "frac()" type="button"> Fraction</button> 
-    <div id="inserting">
-        <!-- ici les calculs -->
-    </div>
+	<button onclick="render()" type="button"> Afficher l'expression mathématique</button>
+	<button onclick="racine()" type="button"> Racine</button>
+	<button onclick="frac()" type="button"> Fraction</button>
+	<div id="inserting">
+		<!-- ici les calculs -->
+	</div>
 
 </body>
 

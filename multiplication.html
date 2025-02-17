@@ -23,24 +23,25 @@
 </head>
 
 <body>
-    <nav class="navbar"></nav>
-    <h1>Les multiplications</h1>
+	<a id="homebtn" class="material-symbols-outlined homebtn" href="index.html" title="Retourner au menu">
+		double_arrow
+	</a>
+	<h1>Les multiplications</h1>
 
-    <button onclick="generer()" type="button"> Générer des multiplications aléatoires </button>
-    <div class="bts">
+	<div class="bts">
 		<button onclick="left()">Scroll left</button>
 		<button onclick="right()">Scroll right</button>
 	</div>
-	<div class="insParent">
-		<div id="inserting">
-			<!-- ici viendront les additions -->
-		</div>
+	<button onclick="generer()" type="button"> Générer des multiplications aléatoires </button>
+	<div id="inserting">
+		<!-- ici viendront multipli -->
 	</div>
-    <button class="bouton" type="button" onclick="score()"> Voir son score </button>
-    <div id="score">
-        <!-- ici viendra le score -->
-    </div>
-    <!-- box pour le score /10 -->
+
+	<button class="bouton" type="button" onclick="score()"> Voir son score </button>
+	<div id="score">
+		<!-- ici viendra le score -->
+	</div>
+	<!-- box pour le score /10 -->
 
     <h2>Tips & Tricks</h2>
     <p> Décomposer la multiplication en de petites additions <br> Visualiser le calcul<br>  Se souvenir de ses identité remarquables
