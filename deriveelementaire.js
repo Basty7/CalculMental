@@ -2,7 +2,6 @@
  * Classe qui représente un polynôme
  */
 class Polynome {
-
 	/**
 	* Class Polynome
 	* @param {number|string|Array} DegreeOrStringOrList - Le degré du polynôme, une représentation textuelle (latex), ou une liste de ses coefficients
@@ -11,22 +10,19 @@ class Polynome {
 		if (typeof DegreeOrStringOrList == "number") {
 			this.list = new Array(DegreeOrStringOrList + 1).fill(0);
 			console.log("number");
-			
-			this.degree = DegreeOrStringOrList;
 		} else if (typeof DegreeOrStringOrList == "string") {
 			this.list = this.fromString(DegreeOrStringOrList);
 			console.log("str");
-			this.degree = this.list.length - 1;
 			this.minimalise();
 		}
 		else {
 			this.list = new Array(DegreeOrStringOrList.length).fill(0).map((_, i) => DegreeOrStringOrList[i] || 0);
-			this.degree = this.list.length - 1;
 			console.log("list");
-			
+
 			this.minimalise();
 		}
 	}
+
 	/**
 	 * Change le coefficient pour un exposant donné
 	 * @param {number} exp L'exposant dont il faut modifer le coeff
@@ -34,8 +30,10 @@ class Polynome {
 	 */
 	setcoeff(exp, coeff) {
 		this.list[exp] = coeff;
+		this.list = new Array(this.list.length).fill(0).map((_, i) => this.list[i] || 0);
 		this.minimalise();
 	}
+
 	/**
 	 * Récuperer un coefficient
 	 * @param {number} exp L'exposant pour-lequel on cherche le coeff
@@ -44,6 +42,7 @@ class Polynome {
 	getcoeff(exp) {
 		return this.list[exp] || 0;
 	}
+
 	/**
 	 * Ajoute un coefficient pour un exposant donné
 	 * @param {number} exp L'exposant dont il faut modifer le coeff
@@ -51,18 +50,20 @@ class Polynome {
 	 * @returns {number} Le nouveau coefficient
 	 */
 	addcoeff(exp, coeff) {
-		this.setcoeff(exp, this.getcoeff() + coeff);
+		this.setcoeff(exp, this.getcoeff(exp) + coeff);
 		this.minimalise();
 		return this.getcoeff(exp);
 	}
+
 	/**
-	 * Obtenir le degré du polynôme
+	 * Obtenir le degré du polynôme. ATTENTION! minimalise le polynôme
 	 * @returns {number} Le degré du polynôme
 	 */
 	getdegree() {
 		this.minimalise();
 		return this.list.length - 1;
 	}
+
 	/**
 	 * Covertit la représentation textuelle en liste
 	 * @param {string} polynomialString - La chaine de caractère représentant le polynôme
@@ -111,7 +112,7 @@ class Polynome {
 	 */
 	// TODO: Ajouter les x !
 	toString() {
-		let xlist = new Array(this.degree + 1);
+		let xlist = new Array(this.getdegree() + 1);
 		for (let exp in this.list) {
 			if (exp === 0 && this.getcoeff(0) != 0) {
 				xlist[0] = this.getcoeff(0);
@@ -123,7 +124,7 @@ class Polynome {
 				xlist[exp] = `${this.getcoeff(exp)}x^${exp}`;
 			}
 		}
-		return this.list.reverse().join(" + ");
+		return xlist.reverse().join(" + ");
 	}
 
 	/**
@@ -131,13 +132,16 @@ class Polynome {
 	 * @param {Polynome} other - Le Polynôme à additioner au premier
 	 */
 	add(other) {
-		QasList = new Array(maxLength).fill(0).map((_, i) => other.list[i] || 0);
-
-		// convertir la liste des exposants en polynome
-		for (let i in PasList) {
-			this.list[i] += QasList[i];
+		for (let i in this.list) {
+			this.addcoeff(i, other.getcoeff(i));
 		}
 	}
+
+	/**
+	 * Multiplie 2 polynômes entre eux
+	 * @param {Polynome} other Le polynôme à multiplier
+	 * @returns {Polynome} Le produit des deux polynomes
+	 */
 	multiplie(other) {
 		let maxLength = this.getdegree() + other.getdegree();
 		this.minimalise();
@@ -146,7 +150,7 @@ class Polynome {
 		let Product = new Polynome(maxLength);
 		for (let exp = 0; exp < maxLength; exp++) {
 			for (let exp2 = 0; exp2 < maxLength; exp2++) {
-				Product.setcoeff(exp + exp2, PasList[exp] * QasList[exp2]);
+				Product.addcoeff(exp + exp2, this.getcoeff(exp) * other.getcoeff(exp2));
 			}
 		}
 		return Product;
@@ -173,8 +177,9 @@ class Polynome {
 	 * @returns {Polynome} Le même polynôme mais nettoyé (si jamais le terme de plus haut degré a un coeff nul ou NaN)
 	 */
 	minimalise() {
-		if ((this.list[this.degree] == 0 || isNaN(this.list[this.degree])) && this.degree > 0) {
-			return new Polynome(this.list.slice(-1));
+		if ((this.list[this.list.length - 1] == 0 || isNaN(this.list[this.list.length - 1])) && this.list.length > 1) {
+			this.list = this.list.slice(-1);
+			return this.minimalise()
 		}
 		else {
 			return this;
@@ -187,8 +192,8 @@ function derviveexp(fn) {
 	// Partons du principe que `fonction` est sous la forme "P(x)* e^Q(x)" où P et Q sont des polinômes
 
 	let fn2 = fn.split("e^");
-	let Px_Part = fn[0];
-	let Qx_part = fn[1];
+	let Px_Part = fn2[0];
+	let Qx_part = fn2[1];
 	let Px = Polynome(Px_Part);
 	let Qx = Polynome(Qx_part);
 
