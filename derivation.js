@@ -48,9 +48,9 @@ function generer() {
 	}
 	if (choix == 2) {
 		
-		let a = rnd(10);
-		let b = rnd(10);
-		let d = rnd(10);
+		let a = rnd(9)+1;
+		let b = rnd(9)+1;
+		let d = rnd(9)+1;
 		katexElement.innerHTML = `f(x) =  e^{(${a}x+${b})} + ${d} ; f'(x) = `;
 		inputField.type = "text";
 		inputField.id = `input`;
