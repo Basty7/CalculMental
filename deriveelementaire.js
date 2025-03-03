@@ -161,15 +161,12 @@ class Polynome {
 	 * @returns {Polynome} Le polynôme dérivé
 	 */
 	derive() {
-		let result = []
-
+		let derivedPoly = new Polynome(this.getdegree());
 		for (let exp in this.list) {
-			if (this.list[exp] * exp != 0) {
-				result[exp - 1] = this.list[exp] * exp;
+			if (exp != 0) {
+				derivedPoly.setcoeff(exp-1) = this.getcoeff(exp) * exp;
 			}
 		}
-		const derivedPoly = new Polynome(this.list.length - 1);
-		derivedPoly.list = result;
 		return derivedPoly;
 	}
 	/**
