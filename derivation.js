@@ -135,11 +135,11 @@ function score() {
 	let scdiv = document.getElementById('score');
 	// En fonction du score obtenu, rajouter un petit mot et changer la classe de l'élément (pour styling plus tard)
 	if (score == 1) {
-		scdiv.innerHTML += " Bravo!";
+		scdiv.innerHTML = " Bravo!";
 		scdiv.className = "vgood"
 	}
 	else if (score == 0) {
-		scdiv.innerHTML += " Révisez! (ou revoyez votre code...)";
+		scdiv.innerHTML = " Révisez! (ou revoyez votre code...)";
 		scdiv.className = "vbad";
 	}
 
