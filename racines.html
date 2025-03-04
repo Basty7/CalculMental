@@ -48,6 +48,81 @@
 	<h2> Tips & Tricks</h2>
 	<p>Regarder le chiffre des unités <br> Encadrer entre deux carrés "sympas" (par exemple : 20² = 400 et 30² = 900)
 	</p>
+
+	<h2> Pour mieux comprendre</h2>
+	<p> Tout d'abord, il faut s'apercevoir que le chiffre des unités du nombre dans la racine permet de déterminer presque entièrement le chiffres des unités du résultat. Par exemple, si votre nombre finit par "4", alors le résultat finira par 2 ou 8.</p> <br> 
+
+	<p>Voici un tableau récapitulatif (on suppose que le nombre dans la racine est appelé X²) : </p>
+
+	<!--code pour faire un tableau trouvé sur https://developer.mozilla.org/fr/docs/Web/HTML/Element/table-->
+	<table>
+		<caption>
+		  Chiffre des unités de X en fonction de X²
+		</caption>
+		<thead>
+		  	<tr>
+				<th scope="col">Chiffre des unités de X²</th>
+				<th scope="col">Chiffre des unités de X si entre 10k et 10k+5 </th>
+				<th scope="col">Chiffre des unités de X si entre 10k+5 et 10k+10</th>
+		  	</tr>
+		</thead>
+		<tbody>
+		  	<tr>
+				<th scope="row"> 0</th>
+				<td>0</td>
+				<td>0</td>
+    		</tr>
+   			<tr>
+     			<th scope="row">1</th>
+      			<td>1</td>
+      			<td>9</td>
+    		</tr>
+    		<tr>
+      			<th scope="row">2</th>
+      			<td>pas de solution</td>
+     			<td>pas de solution</td>
+    		</tr>
+    		<tr>
+      			<th scope="row">3</th>
+      			<td>pas de solution</td>
+				<td>pas de solution</td>
+    		</tr>
+			<tr>
+				<th scope="row">4</th>
+				 <td>2</td>
+				 <td>8</td>
+		    </tr>
+			<tr>
+				<th scope="row">5</th>
+				 <td>5</td>
+				 <td>5</td>
+		    </tr>
+			<tr>
+				<th scope="row">6</th>
+				 <td>6</td>
+				 <td>4</td>
+		    </tr>
+			<tr>
+				<th scope="row">7</th>
+				 <td>pas de solution</td>
+				 <td>pas de solution</td>
+		    </tr>
+			<tr>
+				<th scope="row">8</th>
+				 <td>pas de solution</td>
+				 <td>pas de solution</td>
+		    </tr>
+			<tr>
+				<th scope="row">9</th>
+				 <td>3</td>
+				 <td>7</td>
+		    </tr>
+  		</tbody>
+	</table>
+	<p>Lorsqu'il n'y a pas de solution, cela signifie que X² ne peut finir par le nombre en question.</p>
+
+	<p> Ainsi, il suffit d'encadrer X par deux carrés "sympas" et retrouver son chiffre des unités. Si vous ne savez pas comment calculer des carrés d'entiers sympas, vous pouvez regarder la page sur les <a href> carrés de nombre</a>. </p>
+
 </body>
 
 </html>
