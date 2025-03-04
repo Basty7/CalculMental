@@ -22,7 +22,7 @@ body {
 h1 {
 	text-align: center;
 	font-size: 3em;
-	
+	justify-self: center;
 }
 
 h2 {
@@ -39,35 +39,42 @@ button {
 	font-family: 'Poppins';
 }
 
-p,a,button {
+p,
+a,
+button {
 	font-size: 1.7em;
 }
 
 /* Google fonts: icon */
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+	font-variation-settings:
+		'FILL' 0,
+		'wght' 400,
+		'GRAD' 0,
+		'opsz' 12
 }
 
 /* Home button */
 
+.header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
 .homebtn {
-	position: fixed;
 	margin: .5em;
 	text-decoration: none;
-	color: black;
 	font-size: 2em;
+	color: black;
+	transition: .3s;
+	transform: rotate(-90deg);
 }
 
 #homebtn {
-	font-size: 1.7em;
-}
+	font-size: 2em;
 
-.homebtn {
-	transition: .3s;
 }
 
 .homebtn:hover {
@@ -84,7 +91,6 @@ p,a,button {
 }
 
 #inserting {
-	width: 1000vw;
 	margin: 20px 0;
 	display: flex;
 	/* justify-content: space-around; */
