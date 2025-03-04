@@ -5,6 +5,7 @@ let asw = [
 ];
 
 function generer() {
+    puits.innerHTML = "";
     // Pour les valeurs de pas dans [0,10[ (10 valeurs)
     for (let pas = 0; pas < 10; pas++) {
         let x = rnd(30);
