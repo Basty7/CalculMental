@@ -1,0 +1,9 @@
+#inserting {
+	width: 1000vw;
+	margin: 20px 0;
+	display: flex;
+	/* justify-content: space-around; */
+	overflow-x: scroll;
+	scroll-behavior: smooth;
+
+}
