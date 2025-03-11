@@ -82,45 +82,7 @@ button {
 	transition: .3s;
 }
 
-/* Insertingdiv */
 
-.insParent {
-	width: 100vw;
-	overflow-x: scroll;
-	scroll-behavior: smooth;
-}
-
-#inserting {
-	margin: 20px 0;
-	display: flex;
-	/* justify-content: space-around; */
-	overflow-x: scroll;
-	scroll-behavior: smooth;
-
-}
-
-/* Ceci permet de cacher la barre de défilement */
-#inserting,
-.insParent {
-	-ms-overflow-style: none;
-	/* Internet Explorer 10+ */
-	scrollbar-width: none;
-	/* Firefox */
-}
-
-#inserting::-webkit-scrollbar,
-.insParent::-webkit-scrollbar {
-	display: none;
-	/* Safari and Chrome */
-}
-
-#inserting>div {
-	width: 90vw;
-	margin: 0 5vw;
-	display: flex;
-	align-items: center;
-	height: 2em;
-}
 
 /* Score styling */
 
