@@ -8,6 +8,8 @@
 	<link rel="shortcut icon" href="assets/favicon-dark.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
 	<link rel="stylesheet" href="additions.css">
 	<link rel="stylesheet" href="all.css">
+	<link rel="stylesheet" href="10exp.css">
+	<link rel = "stylesheet" href="h3.css">
 	<!-- KaTeX -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
 		integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
@@ -27,7 +29,7 @@
 	<a id="homebtn" class="material-symbols-outlined homebtn" href="index.html" title="Retourner au menu">
 		double_arrow
 	</a>
-	<h1>Les additions</h1>
+	<h1>Les carrés</h1>
 	<p> Appuyez sur le bouton pour générer dix calculs. Cliquez ensuite sur le bouton "voir mon score" pour connaître votre résultat.</p>
 	<button onclick="generer()" type="button"> Générer des carrés aléatoires </button>
 
@@ -50,6 +52,23 @@
 
 	<h2>Tips & Tricks</h2>
 	<p> Deviner le chiffre des unités <br> Connaître ses identités remarquables<br> Visualiser le calcul</p>
+
+	<h2>Pour aller plus loin</h2>
+	<h3> Carrés de nombres se terminant par 0</h3>
+	<p> Il suffit de connaître le carré du nombre  privé de 0, puis d'ajouter au résultat deux 0 additionnels à la droite. <br>
+	Par exemple, pour calculer 80², il suffit de faire 8² = 64, puis 80² = "64+00" = 6400.<br></p>
+
+	<h3>Carrés de nombres se terminant par 5</h3>
+	<p> On peut exprimer un tel nombre sous la forme 10K+5, où K est le chiffre des dizaines. <br> Il suffit alors de calculer le produit K(K+1), puis d'ajouter "25" à la droite du résultat. <br> 
+	Par exemple, pour calculer 25², il suffit de calculer 2x3 = 6, puis 25² = "6+25" = 625. <br> </p>
+
+	<h3> Vérifier ses calculs</h3>
+	<p> Une fois qu'on sait calculer le carré des nombres terminant par 0 ou par 5, il est aisé de vérifier par un rapide calcul que le résultat obtenu à un carré est cohérent.
+		<br> En effet, il suffit d'encadrer notre carré par un carré se terminant par 5 ou par 0, et vérifier que le résultat se situe bien entre les deux carrés obtenus.
+		<br> Par exemple, 23² = 529. En remarquant que 20 < 23 < 25, on peut se convaincre du résultat précédemment fourni en calculant les carrés de 20 et 25 : on a bien 400 < 529 < 625.
+		<br> <br> On peut également faire attention aux chiffres des unités : en effet, le chiffre des unités du nombre de départ détermine entièrement celui de son carré. Par exemple, si le nombre initial a pour chiffre des unités 2, alors son carré a pour chiffre des unités 4.
+	</p>
+
 </body>
 
 </html>

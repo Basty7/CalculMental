@@ -1,35 +1,25 @@
 table {
-    border-collapse: collapse;
-    border: 2px solid rgb(140 140 140);
-    font-family: sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
+    font-size: 21px; /*la taille de police*/
 }
   
 caption {
-    caption-side: bottom;
-    padding: 10px;
-    font-weight: bold;
-    text-decoration: underline;
+
+    padding: 20px; /* la marge à la fin*/
+    font-weight: bold; /* gras */
+    text-decoration: underline; /* souligné */
 }
   
 thead{
-    background-color: rgb(228 240 245);
-  }
-th,
-td {
-  border: 1px solid rgb(160 160 160);
-  padding: 8px 10px;
+    background-color: rgb(20, 149, 204); /*couleur du head*/
 }
 
-tbody > tr:nth-of-type(even) {
-  background-color: rgb(237 238 242);
+th,td {
+  border: 1px solid rgb(160, 160, 160); /* couleur des interlignes */
+  padding: 6px 8px;
 }
 
-tfoot th {
-  text-align: right;
+tbody > tr:nth-of-type(even) { /* trouvé sur internet*/
+  background-color: rgb(237 238 242); /* couleur de la case sur les cases paires*/
 }
 
-tfoot td {
-  font-weight: bold;
-}
+
