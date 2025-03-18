@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>0+0 = ???</title>
+	<title>Entrainement aux additions</title>
 	<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" media="(prefers-color-scheme: light)">
 	<link rel="shortcut icon" href="assets/favicon-dark.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
 	<link rel="stylesheet" href="additions.css">
@@ -25,25 +25,20 @@
 </head>
 
 <body>
-	<div class="header">
-		<a id="homebtn" class="material-symbols-outlined homebtn" href="index.html" title="Retourner au menu">
-			double_arrow
-		</a>
-		<h1>Les additions</h1>
-		<div></div>
-	</div>
-	<p> Appuyez sur le bouton pour générer dix calculs. Cliquez ensuite sur le bouton "voir mon score" pour connaître votre résultat.</p>
+	<a id="homebtn" class="material-symbols-outlined homebtn" href="index.html" title="Retourner au menu">
+		double_arrow
+	</a>
+	<h1>Les additions</h1>
+
 	<button onclick="generer()" type="button"> Générer des additions aléatoires </button>
 
-	<div class id="bts">
-		<button onclick="left()">Calcul précédent</button>
-		<button onclick="right()">Calcul suivant</button>
+	<div class="hide" id="bts">
+		<button onclick="left()">Scroll left</button>
+		<button onclick="right()">Scroll right</button>
 	</div>
 
-	<div class="insParent">
-		<div id="inserting">
-			<!-- ici viendront les additions -->
-		</div>
+	<div id="inserting">
+		<!-- ici viendront les additions -->
 	</div>
 
 	<button class="bouton" type="button" onclick="score()"> Voir son score </button>

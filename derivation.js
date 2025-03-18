@@ -1,91 +1,80 @@
-let insertingContainer = document.getElementById('inserting');
-let childContainerDiv = insertingContainer.appendChild(document.createElement("div"));
-let katexElement = childContainerDiv.appendChild(document.createElement("katex"));
-let katexElRep = childContainerDiv.appendChild(document.createElement("katex"));
-let inputField = childContainerDiv.appendChild(document.createElement("input"));
+import { Polynome } from "./polynome.js";
 
-let asw1 = [
-	0, 0, 0, 0, 0
-];
+// init: ajout éléments
+const insertingContainer = document.getElementById('inserting');
+const childContainerDiv = insertingContainer.appendChild(document.createElement("div"));
+const katexConsigne = childContainerDiv.appendChild(document.createElement("katex"));
+const katexReponse = childContainerDiv.appendChild(document.createElement("katex"));
+const inputField = childContainerDiv.appendChild(document.createElement("input"));
 
-let asw2 = [
-	0, 0, 0, 0, 0
-];
+let asw1 = new Array;
+
+let asw2 = new Array;
 
 let type = 0;
 
 function generer() {
 	let choix = rnd(3);
-	if (choix == 0) {
-		let a = 2 * rnd(5) + 1;
-		let b = rnd(10);
-		// Remplir le katex
-		katexElement.innerHTML = `f(x) = \\sqrt\{${a} x + ${b}\} ; f'(x) = `;
-		// Mettre le type du input à 'text' son id en fonction de son numéro et sa classe (pour le css).
-		inputField.type = "text";
-		inputField.id = `input`;
-		inputField.class = "answers";
-		// Mettre la réponse dans la liste 
-		// la réponse c'est : \frac{a}{2\sqrt{ax+b}};
-		asw1[0] = a;
-		asw2[0] = b;
-		type = 0;
-		// Render les maths
-		render_katex();
-	}
-	if (choix == 1) {
-		let a = rnd(8) + 1;
-		let b = 11-a;
-		katexElement.innerHTML = `f(x) = \\ln(${a}x+${b}) ; f'(x) = `;
-		inputField.type = "text";
-		inputField.id = `input`;
-		inputField.class = "answers";
-		//la réponse c'est : \frac{a}{ax+b};
-		asw1[0] = a;
-		asw2[0] = b;
-		type = 1;
-		render_katex();
-	}
-	if (choix == 2) {
-		
-		let a = rnd(9)+1;
-		let b = rnd(9)+1;
-		let d = rnd(9)+1;
-		katexElement.innerHTML = `f(x) =  e^{(${a}x+${b})} + ${d} ; f'(x) = `;
-		inputField.type = "text";
-		inputField.id = `input`;
-		inputField.class = "answers";
-		//la réponse c'est : ae^(ax+b);
-		asw1[0]=a;
-		asw2[0] = b;
-		type = 2;
-		render_katex();
+	switch (choix) {
+		case 0:
+			// sqrt(ax+b)
+			px = new Polynome(1);
+			px.setcoeff(1, (rnd(4) + 1) * 2);
+			px.setcoeff(0, (rnd(4) + 1) * 2);
+
+			katexConsigne.innerText = `\\sqrt{${px.toString()}}`;
+
+			asw1.push(px);
+
+			break;
+		case 1:
+			// ln(ax+b)
+			px = new Polynome(1);
+			px.setcoeff(1, (rnd(4) + 1) * 2);
+			px.setcoeff(0, (rnd(4) + 1) * 2);
+
+			katexConsigne.innerText = `\\ln({${px.toString()}})`;
+
+			asw1.push(px)
+			break
+		case 2:
+			px = new Polynome(1);
+			px.setcoeff(1, (rnd(4) + 1) * 2);
+			px.setcoeff(0, (rnd(4) + 1) * 2);
+
+			katexConsigne.innerText = `\\e^{${px.toString()}}`;
+			// e^(ax +b)
+
+			break;
+
+		default:
+			break;
 	}
 }
 
 //rajoute une racine
 function racine() {
 	inputField.value += ` \\sqrt{}`;
-	katexElRep.innerHTML = inputField.value;
-	render_katex_in_element(katexElRep);
+	katexReponse.innerHTML = inputField.value;
+	render_katex_in_element(katexReponse);
 }
 //rajoute une fraction
 function frac() {
 	inputField.value += ` \\frac{}{}`;
-	katexElRep.innerHTML = inputField.value;
-	render_katex_in_element(katexElRep);
+	katexReponse.innerHTML = inputField.value;
+	render_katex_in_element(katexReponse);
 }
 
 //rajoute une exponentielle
 function expo() {
 	inputField.value += `\e^{}`;
-	katexElRep.innterHTML = inputField.value;
-	render_katex_in_element(katexElRep);
+	katexReponse.innterHTML = inputField.value;
+	render_katex_in_element(katexReponse);
 }
 //pour afficher le latex
 function latex() {
-	katexElRep.innerHTML = inputField.value;
-	render_katex_in_element(katexElRep);
+	katexReponse.innerHTML = inputField.value;
+	render_katex_in_element(katexReponse);
 }
 
 function score() {
@@ -95,19 +84,20 @@ function score() {
 	let inputField = document.getElementById(`input`);
 	// Récupérer l'élément avec pr id 'input0', 'input1'...
 	if (type == 0) {
-		let el2 = inputField.value[6];
-		let el3 = inputField.value[9];
-		let el4 = inputField.value[16];
-		let el5 = inputField.value[17];
-		let el6 = inputField.value[18];
-		let el7 = inputField.value[19];
+		let el1 = inputField.value[0];
+		let el2 = inputField.value[7];
+		let el3 = inputField.value[10];
+		let el4 = inputField.value[17];
+		let el5 = inputField.value[18];
+		let el6 = inputField.value[19];
+		let el7 = inputField.value[20];
 		// Si la valeur entrée par l'utilisateur dans le input correspond à la réponse enregistrée dans asw, rajouter un point, sinon rien.
-		if ( (el2 == asw1[0]) && (el3 == "2") && (el4 == asw1[0]) && (el5 == "x") && (el6 == "+") && (el7 == asw2[0])) {
+		if ((el2 == asw1[0]) && (el3 == "2") && (el4 == asw1[0]) && (el5 == "x") && (el6 == "+") && (el7 == asw2[0])) {
 			score++;
 		}
 
 	}
-	if(type == 1) {
+	if (type == 1) {
 		//la réponse c'est : \frac{a}{ax+b};
 		let el1 = inputField.value[1];
 		let el2 = inputField.value[6];
@@ -115,7 +105,7 @@ function score() {
 		let el4 = inputField.value[10];
 		let el5 = inputField.value[12];
 
-		if ( (el1 == "f") && (el2 == asw1[0] ) && (el3 == asw1[0]) && ( el4 == "x") && (el5 == asw2[0])){
+		if ((el1 == "f") && (el2 == asw1[0]) && (el3 == asw1[0]) && (el4 == "x") && (el5 == asw2[0])) {
 			score++;
 		}
 	}
@@ -126,7 +116,7 @@ function score() {
 		let el3 = inputField.value[4];
 		let el4 = inputField.value[5];
 		let el5 = inputField.value[7];
-		if ( (el1 == asw1[0]) && (el2 == "e") && (el3 == asw1[0]) && (el4 == "x") && (el5 == asw2[0]) ) {
+		if ((el1 == asw1[0]) && (el2 == "e") && (el3 == asw1[0]) && (el4 == "x") && (el5 == asw2[0])) {
 			score++;
 		}
 
@@ -135,11 +125,11 @@ function score() {
 	let scdiv = document.getElementById('score');
 	// En fonction du score obtenu, rajouter un petit mot et changer la classe de l'élément (pour styling plus tard)
 	if (score == 1) {
-		scdiv.innerHTML = " Bravo!";
+		scdiv.innerHTML += " Bravo!";
 		scdiv.className = "vgood"
 	}
 	else if (score == 0) {
-		scdiv.innerHTML = " Révisez! (ou revoyez votre code...)";
+		scdiv.innerHTML += " Révisez! (ou revoyez votre code...)";
 		scdiv.className = "vbad";
 	}
 
@@ -152,4 +142,3 @@ document.addEventListener('keydown', (event) => {
 		score();
 	}
 });
-
