@@ -45,6 +45,13 @@ button {
 	font-size: 1.7em;
 }
 
+h3 {
+    font-size : 2em;
+    text-align: left;
+    text-decoration: underline;
+
+}
+
 /* Google fonts: icon */
 .material-symbols-outlined {
 	font-variation-settings:
