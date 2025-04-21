@@ -7,7 +7,7 @@
 	<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" media="(prefers-color-scheme: light)">
 	<link rel="shortcut icon" href="assets/favicon-dark.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
 	<link rel="stylesheet" href="all.css">
-	 <link rel="stylesheet" href="derivation.css">
+	<link rel="stylesheet" href="derivation.css">
 	<!-- KaTeX -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
 		integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
@@ -21,6 +21,7 @@
 	<!-- Other imports -->
 	<script src="main.js"></script>
 	<script src="autorender.js"></script>
+	<script src="polynome.js"></script>
 	<script src="derivation.js" defer></script>
 </head>
 
@@ -34,11 +35,12 @@
 	</div>
 
 	<button onclick="generer()" type="button"> Générer des fonctions à chavirer</button>
-
-	<button onclick="racine()" type="button"> Racine</button>
-	<button onclick="frac()" type="button"> Fraction</button>
-	<button onclick="expo()" type="button"> Exponentielle</button>
-	<button onclick="latex()" type="button"> Afficher le Latex</button>
+	<div class="btnsdiv">
+		<button onclick="racine()" type="button" class="btns">Racine</button>
+		<button onclick="frac()" type="button" class="btns">Fraction</button>
+		<button onclick="expo()" type="button" class="btns">Exponentielle</button>
+		<button onclick="latex()" type="button" class="btns">Afficher le Latex</button>
+	</div>
 	<div class="insParent">
 		<div id="inserting">
 			<!-- ici viendront les additions -->

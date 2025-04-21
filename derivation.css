@@ -1,0 +1,8 @@
+.btnsdiv {
+	display: inline-flex;
+	justify-content: space-around;
+}
+
+.btns {
+	margin: 0 2px;
+}

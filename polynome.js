@@ -1,5 +1,8 @@
+console.log("polynome.js loaded");
+
 /**
  * Classe qui représente un polynôme
+ * Concrètement, il s'agit de simples listes mais le formalisme de la structure d'objet permet une utilisation beaucoup plus simple !
  */
 class Polynome {
 	/**
@@ -8,17 +11,13 @@ class Polynome {
 	*/
 	constructor(DegreeOrStringOrList) {
 		if (typeof DegreeOrStringOrList == "number") {
-			this.list = new Array(DegreeOrStringOrList + 1).fill(0);
-			console.log("number");
+			this.list = new Array(DegreeOrStringOrList + 1).fill(1);
 		} else if (typeof DegreeOrStringOrList == "string") {
 			this.list = this.fromString(DegreeOrStringOrList);
-			console.log("str");
 			this.minimalise();
 		}
 		else {
 			this.list = new Array(DegreeOrStringOrList.length).fill(0).map((_, i) => DegreeOrStringOrList[i] || 0);
-			console.log("list");
-
 			this.minimalise();
 		}
 	}
@@ -27,11 +26,13 @@ class Polynome {
 	 * Change le coefficient pour un exposant donné
 	 * @param {number} exp L'exposant dont il faut modifer le coeff
 	 * @param {number} coeff Le coefficient
+	 * @returns {number} Le coefficient attribué
 	 */
 	setcoeff(exp, coeff) {
 		this.list[exp] = coeff;
 		this.list = new Array(this.list.length).fill(0).map((_, i) => this.list[i] || 0);
 		this.minimalise();
+		return coeff;
 	}
 
 	/**
@@ -65,12 +66,12 @@ class Polynome {
 	}
 
 	/**
-	 * Covertit la représentation textuelle en liste
+	 * Convertit la représentation textuelle en liste
 	 * @param {string} polynomialString - La chaine de caractère représentant le polynôme
 	 * @returns {Array} La liste des coefficients
 	 */
 	fromString(polynomialString) {
-		// TODO: Si on a x^{34} ça fout le sbeul donc il faut regler ça
+
 		if (polynomialString.startwith("{") && polynomialString.endswith("}")) {
 			Px = polynomialString.split(/\{|\}/)[1].trim(); // Extraire le polynome si il est dans {}
 		}
@@ -80,7 +81,9 @@ class Polynome {
 		else {
 			Px = polynomialString.trim();
 		}
-
+		if (Px == "") {
+			return [1];
+		}
 		let polyList = Px.split(" + ");
 		let Coeffslist = [];
 
@@ -164,7 +167,7 @@ class Polynome {
 		let derivedPoly = new Polynome(this.getdegree());
 		for (let exp in this.list) {
 			if (exp != 0) {
-				derivedPoly.setcoeff(exp-1) = this.getcoeff(exp) * exp;
+				derivedPoly.setcoeff(exp - 1, this.getcoeff(exp) * exp);
 			}
 		}
 		return derivedPoly;
@@ -186,7 +189,7 @@ class Polynome {
 
 
 function derviveexp(fn) {
-	// Partons du principe que `fonction` est sous la forme "P(x)* e^Q(x)" où P et Q sont des polinômes
+	// Partons du principe que `fonction` est sous la forme "P(x)*e^Q(x)" où P et Q sont des polinômes
 
 	let fn2 = fn.split("e^");
 	let Px_Part = fn2[0];
@@ -196,3 +199,7 @@ function derviveexp(fn) {
 
 	return `(${Px.derive().add(Px.multiplie(Qx.derive())).toString()})e^(${Qx.toString()})`
 }
+
+// function reconnexp(fn) {
+
+// }

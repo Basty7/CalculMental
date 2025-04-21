@@ -1,13 +1,3 @@
-#inserting {
-	width: 1000vw;
-	margin: 20px 0;
-	display: flex;
-	/* justify-content: space-around; */
-	overflow-x: scroll;
-	scroll-behavior: smooth;
-
-}
-
 /* Insertingdiv */
 
 .insParent {
@@ -17,6 +7,7 @@
 }
 
 #inserting {
+	width: 1000vw;
 	margin: 20px 0;
 	display: flex;
 	/* justify-content: space-around; */
@@ -45,5 +36,5 @@
 	margin: 0 5vw;
 	display: flex;
 	align-items: center;
-	height: 2em;
+	height: 3em;
 }
