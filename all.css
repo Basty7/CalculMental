@@ -73,14 +73,14 @@ h3 {
 .homebtn {
 	margin: .5em;
 	text-decoration: none;
-	font-size: 2em;
+	font-size: 3em;
 	color: black;
 	transition: .3s;
 	transform: rotate(-90deg);
 }
 
 #homebtn {
-	font-size: 2em;
+	font-size: 3em;
 
 }
 
@@ -89,7 +89,9 @@ h3 {
 	transition: .3s;
 }
 
-
+.fill {
+	width:2em;
+}
 
 /* Score styling */
 

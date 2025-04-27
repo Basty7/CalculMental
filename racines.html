@@ -25,11 +25,15 @@
 </head>
 
 <body>
-	<a id="homebtn" class="material-symbols-outlined homebtn" href="index.html" title="Retourner au menu">
-		double_arrow
-	</a>
-	<h1>Les racines carrées</h1>
-	<p> Appuyez sur le bouton pour générer dix calculs. Cliquez ensuite sur le bouton "voir mon score" pour connaître votre résultat.</p>
+	<div class="header">
+		<a id="homebtn" class="material-symbols-outlined homebtn" href="index.html" title="Retourner au menu">
+			double_arrow
+		</a>
+		<h1>Les racines carrées</h1>
+		<div class="fill"></div>
+	</div>
+	<p> Appuyez sur le bouton pour générer dix calculs. Cliquez ensuite sur le bouton "voir mon score" pour connaître
+		votre résultat.</p>
 	<button onclick="generer()" type="button"> Générer des racines carrées aléatoires </button>
 	<div class="bts">
 		<button onclick="left()">Calcul précédent</button>
@@ -53,78 +57,82 @@
 	</p>
 
 	<h2> Pour mieux comprendre</h2>
-	<p> Tout d'abord, il faut s'apercevoir que le chiffre des unités du nombre dans la racine permet de déterminer presque entièrement le chiffres des unités du résultat. Par exemple, si votre nombre finit par "4", alors le résultat finira par 2 ou 8.</p> <br> 
+	<p> Tout d'abord, il faut s'apercevoir que le chiffre des unités du nombre dans la racine permet de déterminer
+		presque entièrement le chiffres des unités du résultat. Par exemple, si votre nombre finit par "4", alors le
+		résultat finira par 2 ou 8.</p> <br>
 
 	<p>Voici un tableau récapitulatif (on suppose que le nombre dans la racine est appelé X²) : </p>
 
 	<!--code pour faire un tableau trouvé sur https://developer.mozilla.org/fr/docs/Web/HTML/Element/table-->
 	<table>
 		<caption> <!--le titre -->
-		  Chiffre des unités de X en fonction de celui de X²
+			Chiffre des unités de X en fonction de celui de X²
 		</caption>
 		<thead>
-		  	<tr>
+			<tr>
 				<th scope="col">Chiffre des unités de X²</th><!--colonne 1 -->
 				<th scope="col">Chiffre des unités de X si entre 10k et 10k+5 </th><!--colonne 2 -->
 				<th scope="col">Chiffre des unités de X si entre 10k+5 et 10k+10</th><!--colonne 3 -->
-		  	</tr>
+			</tr>
 		</thead>
 		<tbody> <!--contenu du tableau (pas la première ligne donc) -->
-		  	<tr> <!--une ligne -->
-				<th scope="row"> 0</th>  <!--1ere case -->
+			<tr> <!--une ligne -->
+				<th scope="row"> 0</th> <!--1ere case -->
 				<td>0</td> <!--2eme case-->
 				<td>0</td> <!--3eme case -->
-    		</tr>
-   			<tr>
-     			<th scope="row">1</th>
-      			<td>1</td>
-      			<td>9</td>
-    		</tr>
-    		<tr>
-      			<th scope="row">2</th>
-      			<td>pas de solution</td>
-     			<td>pas de solution</td>
-    		</tr>
-    		<tr>
-      			<th scope="row">3</th>
-      			<td>pas de solution</td>
+			</tr>
+			<tr>
+				<th scope="row">1</th>
+				<td>1</td>
+				<td>9</td>
+			</tr>
+			<tr>
+				<th scope="row">2</th>
 				<td>pas de solution</td>
-    		</tr>
+				<td>pas de solution</td>
+			</tr>
+			<tr>
+				<th scope="row">3</th>
+				<td>pas de solution</td>
+				<td>pas de solution</td>
+			</tr>
 			<tr>
 				<th scope="row">4</th>
-				 <td>2</td>
-				 <td>8</td>
-		    </tr>
+				<td>2</td>
+				<td>8</td>
+			</tr>
 			<tr>
 				<th scope="row">5</th>
-				 <td>5</td>
-				 <td>5</td>
-		    </tr>
+				<td>5</td>
+				<td>5</td>
+			</tr>
 			<tr>
 				<th scope="row">6</th>
-				 <td>6</td>
-				 <td>4</td>
-		    </tr>
+				<td>6</td>
+				<td>4</td>
+			</tr>
 			<tr>
 				<th scope="row">7</th>
-				 <td>pas de solution</td>
-				 <td>pas de solution</td>
-		    </tr>
+				<td>pas de solution</td>
+				<td>pas de solution</td>
+			</tr>
 			<tr>
 				<th scope="row">8</th>
-				 <td>pas de solution</td>
-				 <td>pas de solution</td>
-		    </tr>
+				<td>pas de solution</td>
+				<td>pas de solution</td>
+			</tr>
 			<tr>
 				<th scope="row">9</th>
-				 <td>3</td>
-				 <td>7</td>
-		    </tr>
-  		</tbody>
+				<td>3</td>
+				<td>7</td>
+			</tr>
+		</tbody>
 	</table>
 	<p>Lorsqu'il n'y a pas de solution, cela signifie que X² ne peut finir par le nombre en question.</p>
 
-	<p> Ainsi, il suffit d'encadrer X par deux carrés "sympas" et retrouver son chiffre des unités. Si vous ne savez pas comment calculer des carrés d'entiers sympas, vous pouvez regarder la page sur les <a href="carre.html"> carrés de nombre</a>. </p>
+	<p> Ainsi, il suffit d'encadrer X par deux carrés "sympas" et retrouver son chiffre des unités. Si vous ne savez pas
+		comment calculer des carrés d'entiers sympas, vous pouvez regarder la page sur les <a href="carre.html"> carrés
+			de nombre</a>. </p>
 
 </body>
 
