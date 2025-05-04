@@ -14,9 +14,11 @@ function generer() {
 	switch (choix) {
 		case 0:
 			// sqrt(ax+b)
-			px = new Polynome(1);
+			let px = new Polynome(1);
+			console.log(px);
 			px.setcoeff(1, (rnd(4) + 1) * 2);
 			px.setcoeff(0, (rnd(4) + 1) * 2);
+			console.log(px);
 			katexConsigne.innerText = `\\sqrt{${px.toString()}}`;
 			asw1.push(px);
 

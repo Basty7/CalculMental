@@ -113,7 +113,6 @@ class Polynome {
 	 * Renvoie une représentation textuelle du polynôme
 	 * @returns {string} Une représentation textuelle du polynôme
 	 */
-	// TODO: Ajouter les x !
 	toString() {
 		let xlist = new Array(this.getdegree() + 1);
 		for (let exp in this.list) {
