@@ -6,3 +6,11 @@
 .btns {
 	margin: 0 2px;
 }
+
+#inserting>div {
+	width: 90vw;
+	margin: 0 5vw;
+	display: flex;
+	align-items: center;
+	height: 3em;
+}

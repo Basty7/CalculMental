@@ -5,20 +5,24 @@ const katexConsigne = childContainerDiv.appendChild(document.createElement("kate
 const katexReponse = childContainerDiv.appendChild(document.createElement("katex"));
 const inputField = childContainerDiv.appendChild(document.createElement("input"));
 
+// Classes
+katexConsigne.classList.add("katex-question")
+childContainerDiv.classList.add("question-answer")
+
 let asw1 = new Array;
 
 let type = 0;
 
 function generer() {
 	let choix = rnd(3);
+	let px;
 	switch (choix) {
 		case 0:
 			// sqrt(ax+b)
-			let px = new Polynome(1);
+			px = new Polynome(1);
 			console.log(px);
 			px.setcoeff(1, (rnd(4) + 1) * 2);
 			px.setcoeff(0, (rnd(4) + 1) * 2);
-			console.log(px);
 			katexConsigne.innerText = `\\sqrt{${px.toString()}}`;
 			asw1.push(px);
 
@@ -28,9 +32,7 @@ function generer() {
 			px = new Polynome(1);
 			px.setcoeff(1, (rnd(4) + 1) * 2);
 			px.setcoeff(0, (rnd(4) + 1) * 2);
-
 			katexConsigne.innerText = `\\ln({${px.toString()}})`;
-
 			asw1.push(px)
 			break
 		case 2:

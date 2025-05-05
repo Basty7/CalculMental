@@ -37,7 +37,7 @@ class Polynome {
 
 	/**
 	 * Récuperer un coefficient
-	 * @param {number} exp L'exposant pour-lequel on cherche le coeff
+	 * @param {number} exp L'exposant pour lequel on cherche le coeff
 	 * @returns {number} Le coefficient correspondant à l'exposant en entrée
 	*/
 	getcoeff(exp) {
@@ -71,7 +71,7 @@ class Polynome {
 	 * @returns {Array} La liste des coefficients
 	 */
 	fromString(polynomialString) {
-
+		let px
 		if (polynomialString.startwith("{") && polynomialString.endswith("}")) {
 			Px = polynomialString.split(/\{|\}/)[1].trim(); // Extraire le polynome si il est dans {}
 		}
@@ -116,10 +116,10 @@ class Polynome {
 	toString() {
 		let xlist = new Array(this.getdegree() + 1);
 		for (let exp in this.list) {
-			if (exp === 0 && this.getcoeff(0) != 0) {
+			if (exp == 0 && this.getcoeff(0) != 0) {
 				xlist[0] = this.getcoeff(0);
 			}
-			else if (exp === 1 && this.getcoeff(1) != 0) {
+			else if (exp == 1 && this.getcoeff(1) != 0) {
 				xlist[1] = `${this.getcoeff(1)}x`;
 			}
 			else if (this.getcoeff(exp) != 0) {
