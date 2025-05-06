@@ -120,7 +120,7 @@ h3 {
 
 .katex-question {
 	font-size: 2em;
-	width: 10em;
+	/* width: 10em; */
 }
 
 .answers {

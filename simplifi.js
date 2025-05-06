@@ -39,10 +39,13 @@ function generer() {
 			inpt.type = "text";
 			inpt.id = `input${pas}`;
 			inpt.className = "answers";
+			kat.className = "katex-question";
 			// Mettre une deuxième zone pour le texte
 			inpt2.type = "text";
 			inpt2.id = `inputy${pas}`;
 			inpt2.className = "answers";
+			kat2.className="katex-question"
+			div.className = "question-answer";
 			// Mettre la réponse dans la liste 
 			asw1[pas] = z ** y;
 			asw2[pas] = x;
@@ -66,16 +69,19 @@ function generer() {
 			let z = z1 / gcd(y1, z1);
 			let u = x * z; //u et v se simplifient après division par z
 			let v = y * z;
-			kat.innerHTML = `${u}/${v} \\Large =`;
+			kat.innerHTML = `\\frac{${u}} {${v}} \\Large =`;
 			kat2.innerHTML = `/`;
 			inpt.type = "text"; //zone réponse 1
 			inpt.id = `input${pas}`;
 			inpt.className = "answers";
+			kat.className = "katex-question";
+
+			div.className = "question-answer";
 
 			inpt2.type = "text"; //zone réponse 2
 			inpt2.id = `inputy${pas}`;
 			inpt2.className = "answers";
-
+			kat2.className = "katex-question"
 			asw1[pas] = x; //set la valeur de la réponse 1
 			asw2[pas] = y; //set la valeur de la réponse 2
 			if (pas != 9) {

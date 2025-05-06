@@ -26,13 +26,11 @@ class Polynome {
 	 * Change le coefficient pour un exposant donné
 	 * @param {number} exp L'exposant dont il faut modifer le coeff
 	 * @param {number} coeff Le coefficient
-	 * @returns {number} Le coefficient attribué
 	 */
 	setcoeff(exp, coeff) {
 		this.list[exp] = coeff;
 		this.list = new Array(this.list.length).fill(0).map((_, i) => this.list[i] || 0);
 		this.minimalise();
-		return coeff;
 	}
 
 	/**
@@ -71,11 +69,11 @@ class Polynome {
 	 * @returns {Array} La liste des coefficients
 	 */
 	fromString(polynomialString) {
-		let px
-		if (polynomialString.startwith("{") && polynomialString.endswith("}")) {
+		let Px;
+		if (polynomialString.startsWith("{") && polynomialString.endsWith("}")) {
 			Px = polynomialString.split(/\{|\}/)[1].trim(); // Extraire le polynome si il est dans {}
 		}
-		else if (polynomialString.startwith("(") && polynomialString.endswith(")")) {
+		else if (polynomialString.startsWith("(") && polynomialString.endsWith(")")) {
 			Px = polynomialString.split(/\(|\)/)[1].trim(); // Extraire le polynome si il est dans ()
 		}
 		else {
@@ -84,10 +82,11 @@ class Polynome {
 		if (Px == "") {
 			return [1];
 		}
-		let polyList = Px.split(" + ");
+		let polyList = Px.split("+");
 		let Coeffslist = [];
 
 		for (let monome of polyList) {
+			monome = monome.trim();
 			if (!monome.includes("x")) {
 				Coeffslist[0] = Number(monome.trim())
 			}
@@ -145,17 +144,31 @@ class Polynome {
 	 * @returns {Polynome} Le produit des deux polynomes
 	 */
 	multiplie(other) {
-		let maxLength = this.getdegree() + other.getdegree();
-		this.minimalise();
-		other.minimalise();
 
-		let Product = new Polynome(maxLength);
-		for (let exp = 0; exp < maxLength; exp++) {
-			for (let exp2 = 0; exp2 < maxLength; exp2++) {
-				Product.addcoeff(exp + exp2, this.getcoeff(exp) * other.getcoeff(exp2));
+		if (typeof other === 'number') {
+			let Product = new Polynome(this.getdegree());
+			for (let exp = 0; exp <= this.getdegree(); exp++) {
+				Product.setcoeff(exp, this.getcoeff(exp) * other);
 			}
+			return Product
 		}
-		return Product;
+		else if (other instanceof Polynome) {
+			let maxLength = this.getdegree() + other.getdegree();
+			this.minimalise();
+			other.minimalise();
+
+			let Product = new Polynome(maxLength);
+			for (let exp = 0; exp < maxLength; exp++) {
+				for (let exp2 = 0; exp2 < maxLength; exp2++) {
+					Product.addcoeff(exp + exp2, this.getcoeff(exp) * other.getcoeff(exp2));
+				}
+			}
+			return Product;
+		}
+		else {
+			throw new Error(`Invalid property type: ${typeof other} not allowed`);
+			
+		}
 	}
 
 	/**
@@ -164,6 +177,7 @@ class Polynome {
 	 */
 	derive() {
 		let derivedPoly = new Polynome(this.getdegree());
+		derivedPoly.setcoeff(this.getdegree(), 0)
 		for (let exp in this.list) {
 			if (exp != 0) {
 				derivedPoly.setcoeff(exp - 1, this.getcoeff(exp) * exp);
@@ -184,11 +198,30 @@ class Polynome {
 			return this;
 		}
 	}
+	/**
+	 * Compare two Polynome instances for equality
+	 * @param {Polynome} other - The other Polynome instance to compare
+	 * @returns {boolean} True if the polynomials are equal, false otherwise
+	 */
+	equals(other) {
+		if (!(other instanceof Polynome)) {
+			return false;
+		}
+		if (this.getdegree() !== other.getdegree()) {
+			return false;
+		}
+		for (let i = 0; i <= this.getdegree(); i++) {
+			if (this.getcoeff(i) !== other.getcoeff(i)) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
 
 
 function derviveexp(fn) {
-	// Partons du principe que `fonction` est sous la forme "P(x)*e^Q(x)" où P et Q sont des polinômes
+	// Partons du principe que `fonction` est sous la forme "P(x)* e^Q(x)" où P et Q sont des polynômes
 
 	let fn2 = fn.split("e^");
 	let Px_Part = fn2[0];
@@ -198,7 +231,3 @@ function derviveexp(fn) {
 
 	return `(${Px.derive().add(Px.multiplie(Qx.derive())).toString()})e^(${Qx.toString()})`
 }
-
-// function reconnexp(fn) {
-
-// }
