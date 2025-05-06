@@ -11,10 +11,11 @@ html {
 
 body {
 	background-color: lightblue;
+	margin:0;
 }
 
 body>* {
-	margin: 0 1em;
+	margin: 0 2vw;
 }
 
 @font-face {
