@@ -1,2 +1,2 @@
-Hi
-you
+Bienvenue ! Ceci est un site de calcul mental. Il vous permettra de vous entraîner aux différents types d'opération pour gagner du temps lors de vos DS.
+Testez-le sur [https://basty7.github.io/CalculMental/]
