@@ -77,7 +77,7 @@ function solution() {
 			render_katex_in_element(katexReponse);
 			break;
 		case 1:
-			katexReponse.innerText = `\\frac {1}{${Reponse.toString()}}`;
+			katexReponse.innerText = `\\frac {${Reponse.derive().toString()}}{${Reponse.toString()}}`;
 			render_katex_in_element(katexReponse);
 			break;
 		case 2:
