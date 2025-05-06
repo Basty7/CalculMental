@@ -2,7 +2,7 @@ console.log("polynome.js loaded");
 
 /**
  * Classe qui représente un polynôme
- * Concrètement, il s'agit de simples listes mais le formalisme de la structure d'objet permet une utilisation beaucoup plus simple !
+ * Concrètement, il s'agit de listes mais le formalisme de la structure d'objet permet une utilisation beaucoup plus simple !
  */
 class Polynome {
 	/**
@@ -198,6 +198,7 @@ class Polynome {
 			return this;
 		}
 	}
+	
 	/**
 	 * Compare two Polynome instances for equality
 	 * @param {Polynome} other - The other Polynome instance to compare

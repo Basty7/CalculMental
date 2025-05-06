@@ -10,8 +10,11 @@ html {
 
 
 body {
-	margin: 0 1em;
 	background-color: lightblue;
+}
+
+body>* {
+	margin: 0 1em;
 }
 
 @font-face {

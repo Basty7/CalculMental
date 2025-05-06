@@ -20,8 +20,8 @@ function generer() {
 	choix = rnd(3);
 	katexReponse.innerHTML = "";
 	let px = new Polynome(5)
-	for (let k = 0; k<= 5; k++) {
-		px.setcoeff(k, rnd(8) +1)
+	for (let k = 0; k <= 5; k++) {
+		px.setcoeff(k, rnd(8) + 1)
 	}
 	switch (choix) {
 		case 0:
