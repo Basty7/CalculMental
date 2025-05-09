@@ -121,6 +121,9 @@ class Polynome {
 			else if (exp == 1 && this.getcoeff(1) != 0) {
 				xlist[1] = `${this.getcoeff(1)}x`;
 			}
+			else if (this.getcoeff(exp) == 1) {
+				xlist[exp] = `x^${exp}`;
+			}
 			else if (this.getcoeff(exp) != 0) {
 				xlist[exp] = `${this.getcoeff(exp)}x^${exp}`;
 			}
