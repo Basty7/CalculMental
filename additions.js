@@ -71,19 +71,19 @@ function score() {
 	scoreDiv.innerHTML = `Votre score est de ${score}/10`;
 	// En fonction du score obtenu, rajouter un petit mot et changer la classe de l'élément (pour styling plus tard)
 	if (score == 10) {
-		scoreDiv.innerHTML += " Bravo!";
+		scoreDiv.innerHTML = " Bravo!";
 		scoreDiv.className = "vgood"
 	}
 	else if (score <= 1) {
-		scoreDiv.innerHTML += " Révisez!";
+		scoreDiv.innerHTML = " Révisez!";
 		scoreDiv.className = "vbad";
 	}
 	else if (score < 5) {
-		scoreDiv.innerHTML += " Vous pouvez faire mieux!";
+		scoreDiv.innerHTML = " Vous pouvez faire mieux!";
 		scoreDiv.className = "bad";
 	}
 	else {
-		scoreDiv.innerHTML += " Pas mal!";
+		scoreDiv.innerHTML = " Pas mal!";
 		scoreDiv.className = "good";
 	}
 
