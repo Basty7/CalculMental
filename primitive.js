@@ -48,18 +48,20 @@ function score() {
 	// Récupérer l'élément avec pr id 'input0', 'input1'...
         //réponse : 
 		// Si la valeur entrée par l'utilisateur dans le input correspond à la réponse enregistrée dans asw, rajouter un point, sinon rien.
-	if ( (inputField.value[0] == asw1[0]) && (inputField.value[3] == 4)&& (inputField.value[5] == asw1[1] ) && (inputField.value[8] == 3) && (inputField.value[10] == asw1[2]) && (inputField.value[13] == 2) && (inputField.value[15]==asw1[3])) {
+	if ( (inputField.value[0] == asw1[0]) && (inputField.value[3] == 4)&& (inputField.value[5] == asw1[1] ) 
+		&& (inputField.value[8] == 3) && (inputField.value[10] == asw1[2]) && (inputField.value[13] == 2) 
+		&& (inputField.value[15]==asw1[3])) {
 		score++;
 	}
 	// Récupère l'élément destiné à contenir l'affichage du score
 	let scdiv = document.getElementById('score');
 	// En fonction du score obtenu, rajouter un petit mot et changer la classe de l'élément (pour styling plus tard)
 	if (score == 1) {
-		scdiv.innerHTML += " Bravo!";
+		scdiv.innerHTML = " Bravo!";
 		scdiv.className = "vgood"
 	}
 	else if (score == 0) {
-		scdiv.innerHTML += " Révisez! (ou revoyez votre code...)";
+		scdiv.innerHTML = " Révisez! (ou revoyez votre code...)";
 		scdiv.className = "vbad";
 	}
 
